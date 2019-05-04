@@ -1,0 +1,12 @@
+extends layout
+
+block topbar
+    link(rel='stylesheet', href='/stylesheets/search.css')
+    #searchWrap
+        input.w3-large#query(type="text" name="name" value= query.name)
+        button.w3-button.w3-white.w3-border Maybe
+    script q = !{query}
+    script(src='/javascripts/search.js')
+
+block content
+    #contWrap

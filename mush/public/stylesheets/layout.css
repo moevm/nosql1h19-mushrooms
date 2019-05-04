@@ -1,0 +1,33 @@
+html, body, #main{
+    height: 100%;
+    width: 100%;
+}
+
+#main{
+    display: flex;
+    flex-flow: column;
+}
+
+#topBarWrapper{
+    width: 100%;
+    flex: 0 1 auto;
+}
+
+#flexTopWrapper{
+    display: flex;
+}
+
+#content{
+    flex: 1 1 auto;
+}
+
+#regionWrap{
+
+    margin-left: auto;
+    flex-wrap: nowrap;
+}
+
+#map{
+    width: 400px;
+    height: 600px;
+}

@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    #upWrap
+        link(rel='stylesheet', href='/stylesheets/index.css')
+        #mainWrapper.wrap
+            img(src="/images/festisite_google-classic.png")
+            form#queryf(action='/search' type='get')
+                input#query(type="text" name="name")
+                .wrap#bwr
+                    input.w3-button.w3-white.w3-border.detButton(type="submit" value="I'm definitely not gonna be poisoned" )
+    script(src='/javascripts/index.js')

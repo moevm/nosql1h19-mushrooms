@@ -1,0 +1,20 @@
+#searchWrap{
+    margin: auto;
+    padding-top: 6px;
+    padding-bottom: 5px;
+    text-align: center;
+    width: 50%;
+    display: inline;
+}
+
+#query{
+    width: 80%;
+    margin-right: 10px;
+}
+
+#contWrap{
+    flex-wrap: wrap;
+    display: flex;
+    overflow-wrap: normal;
+}
+
