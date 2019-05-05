@@ -10,15 +10,15 @@ $window.scroll(function() {
 });
 
 //Sidebar fuctions
-function w3_open() {
-    document.getElementById("main").style.marginLeft = "25%";
-    document.getElementById("mySidebar").style.width = "25%";
-    document.getElementById("mySidebar").style.display = "block";
+function w3_open_left() {
+    document.getElementById("main").style.marginLeft = "15%";
+    document.getElementById("leftSidebar").style.width = "15%";
+    document.getElementById("leftSidebar").style.display = "block";
     document.getElementById("openNav").style.visibility = 'hidden';
 }
-function w3_close() {
+function w3_close_left() {
     document.getElementById("main").style.marginLeft = "0%";
-    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("leftSidebar").style.display = "none";
     document.getElementById("openNav").style.visibility = "visible";
 }
 
@@ -38,7 +38,7 @@ function ComboLabel(key, val){
 $.getJSON("/params", {},(data)=>{
         d = $.parseJSON(data);
         for(let k in d) {
-            $("#wrapper1").append(ComboLabel(k, d[k]));
+            $("#leftWrapper").append(ComboLabel(k, d[k]));
         }
 });
 

@@ -1,7 +1,7 @@
 function collectData(){
     data = {};
     //Sidebar
-    if( $("#mySidebar").is(":visible") )
+    if( $("#leftSidebar").is(":visible") )
     {
         $(".params").each(function () {
             let val = $("option:selected", this).val();

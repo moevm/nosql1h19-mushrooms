@@ -25,14 +25,14 @@ html
             .w3-modal-content
                 #world-map(style='width: 900px; height: 600px')
 
-        #mySidebar.w3-sidebar.w3-bar-block.w3-card.w3-animate-left
-            button.w3-bar-item.w3-button.w3-xlarge(onclick='w3_close()') Close ×
-            #wrapper1
+        #leftSidebar.w3-sidebar.w3-bar-block.w3-card.w3-animate-left
+            button.w3-bar-item.w3-button.w3-xlarge(onclick='w3_close_left()') Close ×
+            #leftWrapper
 
         #main
             #topBarWrapper
                 #flexTopWrapper
-                    button#openNav.w3-button.w3-xlarge.w3-bar-item(onclick='w3_open()') ☰
+                    button#openNav.w3-button.w3-xlarge.w3-bar-item(onclick='w3_open_left()') ☰
                     script(src='/javascripts/layout.js')
 
                     block topbar

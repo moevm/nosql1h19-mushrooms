@@ -1,5 +1,5 @@
 
-w3_close();
+w3_close_left();
 $('#queryf').submit(function() {
     form = $(this);
     data = collectData()

@@ -103,11 +103,4 @@ router.get('/db-query', function (req, res, next) {
     });
 });
 
-router.get('/updateRegion', function (req, res, next) {
-    region = req.query.region;
-    if( Object.entries(lastQuery).length === 0 && lastQuery.constructor === Object ){ //check for the first query
-
-    }
-});
-
 module.exports = router;
