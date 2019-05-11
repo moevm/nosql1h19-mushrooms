@@ -12,7 +12,7 @@ block general
                     h2.w3-col.s11 Modal Header
                     span.w3-button.w3-col.s1(onclick='close_form()' style="font-size: 25px") &times;
             .w3-container
-                form(action="")
+                form(action="/mushroom" method="post")
                     input#url_input.w3-input.w3-border(type="file" name="img" accept="image/jpeg,image/png" value="" placeholder="Image" style="margin-top: 10px;")
                     input#name_input.w3-input.w3-border(type="text" value="" placeholder="Name of mushroom" style="margin-top: 10px;")
                     input#descr_input.w3-input.w3-border(type="text" value="" placeholder="Description" style="margin: 10px 0px;")
@@ -34,7 +34,7 @@ block general
 
                 block topbar
 
-                button#openForm.w3-button(onclick="open_form()") Send a mushroom
+                button#openForm.w3-button(onclick="open_form()") Ух, ща я гриб-то вам придумаю
                 #regionWrap
                     button#openMap.params.w3-button Select region
                     button#resetRegion.w3-button &times

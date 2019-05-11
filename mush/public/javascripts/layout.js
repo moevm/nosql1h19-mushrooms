@@ -6,7 +6,7 @@ var $window = $(window),
     elTop = $stickyEl.offset().top;
 
 $window.scroll(function() {
-    $stickyEl.toggleClass('sticky', $window.scrollTop() > elTop);
+    $stickyEl.toggleClass('sticky', $window.scrollTop > elTop);
 });
 
 //Sidebar fuctions
@@ -57,7 +57,6 @@ function openModal(){
 }
 
 //User's form
-
 function open_form() {
     $('#modalform').css("display", "block");
 }

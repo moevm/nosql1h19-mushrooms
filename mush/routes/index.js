@@ -4,7 +4,6 @@ mongoose = require('mongoose');
 Schema = mongoose.Schema;
 
 //TODO move db work to another file
-
 //Data for queries
 //structure: {param: [{label:value}, ..]}
 data = {
@@ -37,14 +36,6 @@ data = {
     habitat : [{ grasses:"g"}, {leaves:"l"}, {meadows:"m"}, {paths:"p"}, { urban:"u"}, {waste:"w"}, {woods:"d"}]
 }
 
-//Connection for main model
-const connection = mongoose.createConnection('mongodb+srv://Totem:12345@db-4mje1.gcp.mongodb.net/Mushrooms', {useNewUrlParser: true});
-connection.on('open', function () {
-    console.log('Connection to db established');
-});
-connection.on('error', console.error.bind(console, 'connection error:'));
-
-//Model
 var sch = new Schema({
     bruises: String ,
     cap_color: String ,
@@ -72,7 +63,17 @@ var sch = new Schema({
     description: String,
     region: String
 });
+
+//Connection for models
+const connection = mongoose.createConnection('mongodb+srv://Totem:12345@db-4mje1.gcp.mongodb.net/Mushrooms', {useNewUrlParser: true});
+connection.on('open', function () {
+    console.log('Connection to db for mainQuery established');
+});
+connection.on('error', console.error.bind(console, 'connection error:'));
+
+//Models
 var mushroom = connection.model('Mushroom', sch, 'Mushrooms');
+var suggestion = connection.model('Suggestion', sch, 'Suggestions')
 
 //Routes
 router.get('/', function(req, res, next) {
@@ -90,9 +91,17 @@ router.get('/search', function (req, res, next) {
     res.render('search', {query: JSON.stringify(req.query)});
 });
 
+//Admins
+router.get('/adminauth', function(req, res) {
+    res.render('adminauth', { title: 'Admin Panel'});
+});
+
+router.get('/adminpanel', function(req, res) {
+    res.render('adminpanel', { title: 'Admin Panel'});
+});
+
 //Querying to db
 router.get('/db-query', function (req, res, next) {
-    lastQuery = req.query;
     if( 'name' in req.query )
     {
         req.query.name = {$regex: req.query.name};
@@ -103,12 +112,20 @@ router.get('/db-query', function (req, res, next) {
     });
 });
 
-router.get('/adminauth', function(req, res) {
-    res.render('adminauth', { title: 'Admin Panel'});
-});
+router.get('/suggestions', function (req, res, next) {
+    suggestion.find('', function (err, sugg) {
+        res.send(sugg);
+    })
+})
 
-router.get('/adminpanel', function(req, res) {
-    res.render('adminpanel', { title: 'Admin Panel'});
+router.post('/mushroom', function (req, res, next) {
+    let sugg = new suggestion(req.body);
+    console.log(sugg);
+    sugg.save(function (err) {
+        console.log('NANIII');
+        console.log(err);
+    });
+    console.log(req.body);
 });
 
 module.exports = router;
