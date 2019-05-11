@@ -13,10 +13,13 @@ block general
                     input#userurl_input.w3-input.w3-border(type="file" name="img" accept="image/jpeg,image/png" value="" placeholder="Image" style="margin-top: 10px;")
                     input#username_input.w3-input.w3-border(type="text" value="" placeholder="Name of mushroom" style="margin-top: 10px;")
                     input#userdescr_input.w3-input.w3-border(type="text" value="" placeholder="Description" style="margin: 10px 0px;")
-                    #usertrashWrapper
+                    #userWrapper
                     button.w3-button.w3-black(type="submit" style="margin: 20px 0px;") Enter
 
             footer.w3-container.w3-border Ня
+
+
+
 
     .w3-row
         #user_trash.w3-col.s6
@@ -29,7 +32,12 @@ block general
                 li(onclick="usermodal_open()")  five
 
         #admin_search.w3-col.s6
+            #adminSidebar.w3-sidebar.w3-bar-block.w3-card.w3-animate-left(style="display: none;")
+                button.w3-bar-item.w3-button.w3-xlarge(onclick='admin_sidebar_close()') Close ×
+                #adminSidebarWrapper
+            button#openAdminSidebar.w3-button.w3-xlarge.w3-bar-item(onclick='admin_sidebar_open()') ☰
             input.w3-large#query(type="text" name="name")
             button.w3-button.w3-white.w3-border Maybe
             script(src='/javascripts/search.js')
+
     script(src="/javascripts/adminpanel.js")
