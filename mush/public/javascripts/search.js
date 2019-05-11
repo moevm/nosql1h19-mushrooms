@@ -3,7 +3,7 @@
 function miniature(item){
     console.log(item);
     upWrap = $("<div />", {
-        style: "width: 20%; height: 17%; margin: 10px; text-align: center;",
+        style: "width: 20%; height: auto; margin: 10px; text-align: center;",
         class: "w3-card popup",
     });
     upWrap.append($('<img />', {

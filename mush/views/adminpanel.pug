@@ -1,0 +1,35 @@
+extends main
+
+block general
+    .w3-modal#usertrash_modal
+        .w3-modal-content
+            header.w3-container.w3-border
+                .w3-row
+                    h2.w3-col.s11 Modal Header
+                    span.w3-button.w3-col.s1(onclick='usermodal_close()' style="font-size: 25px") &times;
+            .w3-container
+                form(action="")
+                    img#userimg(src="#")
+                    input#userurl_input.w3-input.w3-border(type="file" name="img" accept="image/jpeg,image/png" value="" placeholder="Image" style="margin-top: 10px;")
+                    input#username_input.w3-input.w3-border(type="text" value="" placeholder="Name of mushroom" style="margin-top: 10px;")
+                    input#userdescr_input.w3-input.w3-border(type="text" value="" placeholder="Description" style="margin: 10px 0px;")
+                    #usertrashWrapper
+                    button.w3-button.w3-black(type="submit" style="margin: 20px 0px;") Enter
+
+            footer.w3-container.w3-border Ня
+
+    .w3-row
+        #user_trash.w3-col.s6
+            h3 Mushrooms from users
+            ul.w3-ul.w3-hoverable
+                li(onclick='usermodal_open()') one
+                li(onclick="usermodal_open()")  two
+                li(onclick="usermodal_open()")  three
+                li(onclick="usermodal_open()")  four
+                li(onclick="usermodal_open()")  five
+
+        #admin_search.w3-col.s6
+            input.w3-large#query(type="text" name="name")
+            button.w3-button.w3-white.w3-border Maybe
+            script(src='/javascripts/search.js')
+    script(src="/javascripts/adminpanel.js")

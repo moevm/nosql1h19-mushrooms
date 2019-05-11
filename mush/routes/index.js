@@ -103,4 +103,12 @@ router.get('/db-query', function (req, res, next) {
     });
 });
 
+router.get('/adminauth', function(req, res) {
+    res.render('adminauth', { title: 'Admin Panel'});
+});
+
+router.get('/adminpanel', function(req, res) {
+    res.render('adminpanel', { title: 'Admin Panel'});
+});
+
 module.exports = router;

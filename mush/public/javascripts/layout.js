@@ -34,11 +34,15 @@ function ComboLabel(key, val){
     d.append(s);
     return d;
 }
+
+
 //TODO Maybe it's good idea to add $(()=>{}) BUT In this case search.js won't find combolabels
 $.getJSON("/params", {},(data)=>{
         d = $.parseJSON(data);
         for(let k in d) {
             $("#leftWrapper").append(ComboLabel(k, d[k]));
+            //тут я добавила эту штуку,которую бы не стоило сюда добавлять
+            $("#formWrapper").append(ComboLabel(k, d[k]));
         }
 });
 
@@ -51,6 +55,17 @@ function openModal(){
         }
     });
 }
+
+//User's form
+
+function open_form() {
+    $('#modalform').css("display", "block");
+}
+
+function close_form() {
+    $('#modalform').css("display", "none");
+}
+
 $(function () {
     //Out of modal click
     var modal = document.getElementById('modal');

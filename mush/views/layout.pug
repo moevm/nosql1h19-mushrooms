@@ -1,46 +1,44 @@
-doctype html
-html
-    head
-        title Mushrooms
-        meta(name='viewport', content='width=device-width, initial-scale=1')
+extends main
 
-        //w3 & JVectorMap
-        link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
-        link(rel='stylesheet', href='/stylesheets/jquery-jvectormap-2.0.3.css')
+block general
+    .w3-modal#modal
+        .w3-modal-content
+            #world-map(style='width: 900px; height: 600px')
 
-        link(rel='stylesheet', href='/stylesheets/layout.css')
+    .w3-modal#modalform
+        .w3-modal-content
+            header.w3-container.w3-border
+                .w3-row
+                    h2.w3-col.s11 Modal Header
+                    span.w3-button.w3-col.s1(onclick='close_form()' style="font-size: 25px") &times;
+            .w3-container
+                form(action="")
+                    input#url_input.w3-input.w3-border(type="file" name="img" accept="image/jpeg,image/png" value="" placeholder="Image" style="margin-top: 10px;")
+                    input#name_input.w3-input.w3-border(type="text" value="" placeholder="Name of mushroom" style="margin-top: 10px;")
+                    input#descr_input.w3-input.w3-border(type="text" value="" placeholder="Description" style="margin: 10px 0px;")
+                    #formWrapper
+                    button.w3-button.w3-black(type="submit" style="margin: 20px 0px;") Enter
 
-        //JQuery & Cookie
-        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js')
-        script(src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js")
+            footer.w3-container.w3-border Ня
 
-        //JVectorMap
-        script(src='/javascripts/jquery-jvectormap-2.0.3.min.js')
-        script(src='http://jvectormap.com/js/jquery-jvectormap-world-mill.js')
 
-        script(src='/javascripts/functs.js')
+    #leftSidebar.w3-sidebar.w3-bar-block.w3-card.w3-animate-left
+        button.w3-bar-item.w3-button.w3-xlarge(onclick='w3_close_left()') Close ×
+        #leftWrapper
 
-    body
-        .w3-modal#modal
-            .w3-modal-content
-                #world-map(style='width: 900px; height: 600px')
+    #main
+        #topBarWrapper
+            #flexTopWrapper
+                button#openNav.w3-button.w3-xlarge.w3-bar-item(onclick='w3_open_left()') ☰
+                script(src='/javascripts/layout.js')
 
-        #leftSidebar.w3-sidebar.w3-bar-block.w3-card.w3-animate-left
-            button.w3-bar-item.w3-button.w3-xlarge(onclick='w3_close_left()') Close ×
-            #leftWrapper
+                block topbar
 
-        #main
-            #topBarWrapper
-                #flexTopWrapper
-                    button#openNav.w3-button.w3-xlarge.w3-bar-item(onclick='w3_open_left()') ☰
-                    script(src='/javascripts/layout.js')
-
-                    block topbar
-
-                    #regionWrap
-                        button#openMap.params.w3-button Select region
-                        button#resetRegion.w3-button &times
-                        input#region(type="hidden")
-            #contatiner
-            #content
-                block content
+                button#openForm.w3-button(onclick="open_form()") Send a mushroom
+                #regionWrap
+                    button#openMap.params.w3-button Select region
+                    button#resetRegion.w3-button &times
+                    input#region(type="hidden")
+        #contatiner
+        #content
+            block content
