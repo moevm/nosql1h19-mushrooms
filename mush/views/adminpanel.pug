@@ -18,9 +18,6 @@ block general
 
             footer.w3-container.w3-border Ня
 
-
-
-
     .w3-row
         #user_trash.w3-col.s6
             h3 Mushrooms from users
@@ -35,9 +32,17 @@ block general
             #adminSidebar.w3-sidebar.w3-bar-block.w3-card.w3-animate-left(style="display: none;")
                 button.w3-bar-item.w3-button.w3-xlarge(onclick='admin_sidebar_close()') Close ×
                 #adminSidebarWrapper
-            button#openAdminSidebar.w3-button.w3-xlarge.w3-bar-item(onclick='admin_sidebar_open()') ☰
-            input.w3-large#query(type="text" name="name")
-            button.w3-button.w3-white.w3-border Maybe
-            script(src='/javascripts/search.js')
+            .w3-row
+                button#openAdminSidebar.w3-button.w3-xlarge.w3-bar-item(onclick='admin_sidebar_open()') ☰
+                input.w3-large#query(type="text" name="name")
+                button.w3-button.w3-white.w3-border Maybe
 
+            #admin_content Привет, сюда нужно запихнуть результат поиска
+                ul.w3-ul.w3-hoverable
+                    li(onclick='usermodal_open()') one
+                    li(onclick="usermodal_open()")  two
+                    li(onclick="usermodal_open()")  three
+                    li(onclick="usermodal_open()")  four
+                    li(onclick="usermodal_open()")  five
+                    
     script(src="/javascripts/adminpanel.js")
