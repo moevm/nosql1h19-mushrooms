@@ -1,8 +1,10 @@
+passport = require('passport');
 express = require('express');
-router = express.Router();
 mongoose = require('mongoose');
+
+router = express.Router();
 Schema = mongoose.Schema;
-//TODO rename data, cause there is too many
+
 //TODO move db work to another file
 //Data for queries
 //structure: {param: [{label:value}, ..]}
@@ -34,7 +36,7 @@ var params = {
     spore_print_color : [{ black:"k"}, {brown:"n"}, {buff:"b"}, {chocolate:"h"}, {green:"r"}, { orange:"o"}, {purple:"u"}, {white:"w"}, {yellow:"y"}],
     population : [{ abundant:"a"}, {clustered:"c"}, {numerous:"n"}, { scattered:"s"}, {several:"v"}, {solitary:"y"}],
     habitat : [{ grasses:"g"}, {leaves:"l"}, {meadows:"m"}, {paths:"p"}, { urban:"u"}, {waste:"w"}, {woods:"d"}]
-}
+};
 
 var sch = new Schema({
     bruises: String ,
@@ -79,6 +81,7 @@ var suggestion = connection.model('Suggestion', sch, 'Suggestions')
 //Routes
 router.get('/', function(req, res, next) {
   res.render('index');
+  console.log(req);
 });
 
 //Get sidebar filler
@@ -99,9 +102,15 @@ router.get('/adminauth', function(req, res) {
     res.render('adminauth', { title: 'Admin Panel'});
 });
 
-router.get('/adminpanel', function(req, res) {
+router.get('/adminpanel', passport.authenticationMiddleware(), function(req, res) {
     res.render('adminpanel', { title: 'Admin Panel'});
 });
+
+router.post('/login', passport.authenticate('local', {
+    successRedirect: '/adminpanel',
+    failureRedirect: '/',
+    failureFlash: true
+}));
 
 //Querying to db
 router.get('/db-query', function (req, res, next) {
