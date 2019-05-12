@@ -1,3 +1,7 @@
+html {
+    overflow-y: hidden;
+}
+
 .params_correct {
     width: 216px;
     margin: 2px 5px 2px 5px;
