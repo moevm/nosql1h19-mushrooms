@@ -1,31 +1,42 @@
 function usermodal_open(data) {
     $('#usertrash_modal').css("display", "block");
-    $(".params").each(function () {
-        $(this).val(data[this.name])
-    });
-    $('#userimg').attr('src', data.img); //setting img source
-    $('#modalForm').append($('<input />', { //remember id
-        type: 'hidden',
-        name: '_id',
-        value: data._id
-    }));//save id
-    $('#modalForm').append($('<input />', { //remember ttype
-        type: 'hidden',
-        name: 'ttype',
-        value: data.ttype
-    }));//save doc typ
-    $('#modalForm').append($('<input />', { //remember ttype
+    d = false;
+
+    $('#modalForm').append($('<input />', { //save img
         type: 'hidden',
         name: 'img',
-        value: data.img
-    }))
+        id: "hmeh"
+    }));
+
+    if( data ){
+        d = true;
+
+        $(".params").each(function () {
+            $(this).val(data[this.name])
+        });
+        $('#userimg').attr('src', data.img); //setting img source
+
+        $('#modalForm').append($('<input />', { //save id
+            type: 'hidden',
+            name: '_id',
+            value: data._id
+        }));
+
+        $('#modalForm').append($('<input />', { //save doc typ
+            type: 'hidden',
+            name: 'ttype',
+            value: data.ttype
+        }));
+
+        $("#hmeh").val(data.img);
+    }
 }
 
 function usermodal_close() {
     $('#usertrash_modal').css("display", "none");
     $("input[name=_id]").remove();
     $("input[name=ttype]").remove();
-    $("input[name=img]").remove();
+    $("#hmeh").remove();
 }
 
 //Sidebar fuctions
@@ -101,7 +112,7 @@ function readURL(input) {
             $('#userimg').attr('src', e.target.result);
             $("#mehHmehHmememe").remove();
             let form = $("#modalForm");
-            $("input[name=img]").val(e.target.result);
+            $("#hmeh").val(e.target.result);
         };
         reader.readAsDataURL(input.files[0]);
     }

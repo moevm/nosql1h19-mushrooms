@@ -1,6 +1,7 @@
 extends main
 
 block general
+
     .w3-modal#usertrash_modal
         .w3-modal-content
             header.w3-container.w3-border
@@ -34,7 +35,7 @@ block general
             .w3-row
                 button#openAdminSidebar.w3-button.w3-xlarge.w3-bar-item(onclick='admin_sidebar_open()') ☰
                 input.w3-large#query(type="text" name="name")
-                button.w3-button.w3-white.w3-border Maybe
+                button.w3-button.w3-white.w3-border.w3-right(onclick="usermodal_open()") Создать админский гриб
 
             #admin_content
                 ul.w3-ul.w3-hoverable#adminList

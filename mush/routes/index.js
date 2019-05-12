@@ -81,7 +81,6 @@ var suggestion = connection.model('Suggestion', sch, 'Suggestions')
 //Routes
 router.get('/', function(req, res, next) {
   res.render('index');
-  console.log(req);
 });
 
 //Get sidebar filler
@@ -118,7 +117,6 @@ router.get('/db-query', function (req, res, next) {
     {
         req.query.name = {$regex: req.query.name};
     }
-    console.log(req.query);
     mushroom.find(req.query, function (err, mush) {
         res.send(mush);
     });
@@ -163,6 +161,15 @@ router.post('/adminPressedTheBlackButton', function (req, res, next) {
                 }
             })
         }
+    }
+    else{ //Admin's mushroom
+        console.log(req.body);
+        aMush = new mushroom(req.body);
+        aMush.save(function (err) {
+            if(err){
+                console.log("Kirito, it's 2 dangerous 2 go alone, take this stilet and stab the Administrator");
+            }
+        })
     }
     res.render('adminpanel');
 });
