@@ -1,10 +1,12 @@
 extends main
 
 block general
+    //Region select modal
     .w3-modal#modal
         .w3-modal-content
             #world-map(style='width: 900px; height: 600px')
 
+    //Suggestion modal
     .w3-modal#modalform
         .w3-modal-content
             header.w3-container.w3-border
@@ -12,20 +14,22 @@ block general
                     h2.w3-col.s11 Modal Header
                     span.w3-button.w3-col.s1(onclick='close_form()' style="font-size: 25px") &times;
             .w3-container
-                form(action="/mushroom" method="post")
-                    input#url_input.w3-input.w3-border(type="file" name="img" accept="image/jpeg,image/png" value="" placeholder="Image" style="margin-top: 10px;")
-                    input#name_input.w3-input.w3-border(type="text" value="" placeholder="Name of mushroom" style="margin-top: 10px;")
-                    input#descr_input.w3-input.w3-border(type="text" value="" placeholder="Description" style="margin: 10px 0px;")
+                input#url_input.w3-input.w3-border(type="file" name="img" accept="image/jpeg,image/png" value="" placeholder="Image" style="margin-top: 10px;")
+                form#suggestion(action="/mushroom" method="post")
+                    input#name_input.w3-input.w3-border(type="text" name="name" placeholder="Name of mushroom"  style="margin-top: 10px;")
+                    input#descr_input.w3-input.w3-border(type="text" name="description" placeholder="Description"  style="margin: 10px 0px;")
+                    input.w3-input.w3-border(type="text" name="region" placeholder="Region" style="margin: 10px 0px;")
                     #formWrapper
                     button.w3-button.w3-black(type="submit" style="margin: 20px 0px;") Enter
 
             footer.w3-container.w3-border Ня
 
-
+    //Params bar
     #leftSidebar.w3-sidebar.w3-bar-block.w3-card.w3-animate-left
         button.w3-bar-item.w3-button.w3-xlarge(onclick='w3_close_left()') Close ×
         #leftWrapper
 
+    //Content window
     #main
         #topBarWrapper
             #flexTopWrapper

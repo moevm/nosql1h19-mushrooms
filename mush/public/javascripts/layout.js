@@ -35,10 +35,10 @@ function ComboLabel(key, val){
     return d;
 }
 
-
 //TODO Maybe it's good idea to add $(()=>{}) BUT In this case search.js won't find combolabels
 $.getJSON("/params", {},(data)=>{
         d = $.parseJSON(data);
+        console.log(d);
         for(let k in d) {
             $("#leftWrapper").append(ComboLabel(k, d[k]));
             //тут я добавила эту штуку,которую бы не стоило сюда добавлять
@@ -46,6 +46,7 @@ $.getJSON("/params", {},(data)=>{
         }
 });
 
+//World map
 function openModal(){
     $('#modal').css("display", "block");
     $('#world-map').vectorMap({
@@ -56,6 +57,7 @@ function openModal(){
     });
 }
 
+
 //User's form
 function open_form() {
     $('#modalform').css("display", "block");
@@ -65,6 +67,13 @@ function close_form() {
     $('#modalform').css("display", "none");
 }
 
+function readFile(file, onLoadCallback){
+    let reader = new FileReader();
+    reader.onload = onLoadCallback;
+    reader.readAsDataURL(file);
+}
+
+//Init
 $(function () {
     //Out of modal click
     var modal = document.getElementById('modal');
@@ -84,5 +93,17 @@ $(function () {
     //Setting buttons
     $("#openMap").on('click', openModal) ;
     $("#resetRegion").on('click', function(){updateRegion("")});
+
+    //Loading image to suggestions
+    $("#url_input").on('change', function (e) {
+        readFile(this.files[0], function (e) {
+            let form = $("#suggestion");
+            form.append($("<input />",{
+                type: "hidden",
+                name: "img",
+                value: e.target.result
+            }))
+        })
+    })
 });
 

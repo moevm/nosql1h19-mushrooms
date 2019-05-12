@@ -2,11 +2,11 @@ express = require('express');
 router = express.Router();
 mongoose = require('mongoose');
 Schema = mongoose.Schema;
-
+//TODO rename data, cause there is too many
 //TODO move db work to another file
 //Data for queries
 //structure: {param: [{label:value}, ..]}
-data = {
+var params = {
     cap_shape : [{ bell:"b"}, {conical:"c"},
         {convex:"x"}, {flat:"f"}, { knobbed:"k"}, {sunken:"s"}],
     cap_surface : [{ fibrous:"f"}, {grooves:"g"}, {scaly:"y"}, {smooth:"s"}],
@@ -61,13 +61,14 @@ var sch = new Schema({
     veil_color: String ,
     veil_type: String ,
     description: String,
-    region: String
+    region: String,
+    img: String,
 });
 
 //Connection for models
 const connection = mongoose.createConnection('mongodb+srv://Totem:12345@db-4mje1.gcp.mongodb.net/Mushrooms', {useNewUrlParser: true});
 connection.on('open', function () {
-    console.log('Connection to db for mainQuery established');
+    console.log('Connection to db established');
 });
 connection.on('error', console.error.bind(console, 'connection error:'));
 
@@ -80,10 +81,12 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
+//Get sidebar filler
 router.get('/params', function (req, res, next) {
-   res.json(JSON.stringify(data));
+   res.json(JSON.stringify(params));
 });
 
+//Get search page
 router.get('/search', function (req, res, next) {
     console.log("Someone is trying to search our secrets");
     if( req.query.name === "" )
@@ -112,20 +115,84 @@ router.get('/db-query', function (req, res, next) {
     });
 });
 
+//Get all suggestions
 router.get('/suggestions', function (req, res, next) {
-    suggestion.find('', function (err, sugg) {
+    suggestion.find({}, function (err, sugg) {
         res.send(sugg);
     })
-})
+});
 
+//Add new/update mushroom
+router.post('/adminPressedTheBlackButton', function (req, res, next) {
+    let data = req.body;
+    if( 'ttype' in data ){
+        if( data['ttype'] === 'admin' ) //update an existing mush
+        {
+            delete data.ttype;
+            mushroom.updateOne({'_id': data._id},{$set: data}, function (err) {
+                if(err){
+                    console.log("can't update");
+                }
+            } )
+        }
+        else //add new one from suggestions
+        {
+            delete data.ttype;
+            let id = data._id;
+            delete data._id
+
+            let mush = new mushroom(data);
+            mush.save(function (err) {
+                if( err ){
+                    console.log('smth wrong, can"t save')
+                }
+                else{
+                    suggestion.findOneAndDelete({_id: id}, function (err) {
+                        if( err )
+                            console.log("can't delete, HE IS TOO POWERFUL");
+                    })
+                }
+            })
+        }
+    }
+    res.render('adminpanel');
+});
+
+//Delete mushroom
+router.post('/adminPressedTheRedButton', function (req, res, next) {
+    let data = req.body;
+
+    if( 'ttype' in data ){
+        if( data.ttype === 'admin' ){ //form main db
+            mushroom.deleteOne({"_id": data._id}, function (err) {
+                if( err ){
+                    console.log('RED BUTTON DOESN"T WORK, HE IS UNSTOPPABLE');
+                }
+            });
+        }
+        else{ //from suggestions
+            suggestion.deleteOne({"_id": data._id}, function (err) {
+                if( err ){
+                    console.log('RED BUTTON DOESN"T WORK, HE IS UNSTOPPABLE');
+                }
+            })
+        }
+    }
+    res.render('adminpanel');
+});
+
+//Add new suggestion
 router.post('/mushroom', function (req, res, next) {
     let sugg = new suggestion(req.body);
+    console.log('there');
     console.log(sugg);
     sugg.save(function (err) {
-        console.log('NANIII');
-        console.log(err);
+        if( err )
+            console.log('NANIII');
     });
     console.log(req.body);
+    res.render('search', {query: JSON.stringify({name: ""})}); //TODO Duct Tape
+
 });
 
 module.exports = router;

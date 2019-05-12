@@ -8,25 +8,24 @@ block general
                     h2.w3-col.s11 Modal Header
                     span.w3-button.w3-col.s1(onclick='usermodal_close()' style="font-size: 25px") &times;
             .w3-container
-                form(action="")
-                    img#userimg(src="#")
-                    input#userurl_input.w3-input.w3-border(type="file" name="img" accept="image/jpeg,image/png" value="" placeholder="Image" style="margin-top: 10px;")
-                    input#username_input.w3-input.w3-border(type="text" value="" placeholder="Name of mushroom" style="margin-top: 10px;")
-                    input#userdescr_input.w3-input.w3-border(type="text" value="" placeholder="Description" style="margin: 10px 0px;")
+                img#userimg(src="#")
+                input.w3-input.w3-border#imgInput(type="file" name="img" accept="image/jpeg,image/png" value="" placeholder="Image" style="margin-top: 10px;")
+                form#modalForm(method="post")
+                    input.w3-input.w3-border.params(type="text" name="name" placeholder="Name of mushroom" style="margin-top: 10px;")
+                    input.w3-input.w3-border.params(type="text" name="description" placeholder="Description" style="margin: 10px 0px;")
+                    input.w3-input.w3-border.params(type="text" name="region" placeholder="Region" style="margin: 10px 0px;")
+
                     #userWrapper
-                    button.w3-button.w3-black(type="submit" style="margin: 20px 0px;") Enter
+
+                    button.w3-button.w3-black(type="submit" formaction="/adminPressedTheBlackButton" style="margin: 20px 0px;") Enter
+                    button.w3-button.w3-red(type="submit" formaction="/adminPressedTheRedButton" style="margin: 20px 0px;") Dismiss
 
             footer.w3-container.w3-border Ня
 
     .w3-row
         #user_trash.w3-col.s6
             h3 Mushrooms from users
-            ul.w3-ul.w3-hoverable
-                li(onclick='usermodal_open()') one
-                li(onclick="usermodal_open()")  two
-                li(onclick="usermodal_open()")  three
-                li(onclick="usermodal_open()")  four
-                li(onclick="usermodal_open()")  five
+            ul.w3-ul.w3-hoverable#userList
 
         #admin_search.w3-col.s6
             #adminSidebar.w3-sidebar.w3-bar-block.w3-card.w3-animate-left(style="display: none;")
@@ -37,12 +36,8 @@ block general
                 input.w3-large#query(type="text" name="name")
                 button.w3-button.w3-white.w3-border Maybe
 
-            #admin_content Привет, сюда нужно запихнуть результат поиска
-                ul.w3-ul.w3-hoverable
-                    li(onclick='usermodal_open()') one
-                    li(onclick="usermodal_open()")  two
-                    li(onclick="usermodal_open()")  three
-                    li(onclick="usermodal_open()")  four
-                    li(onclick="usermodal_open()")  five
+            #admin_content
+                ul.w3-ul.w3-hoverable#adminList
+
                     
     script(src="/javascripts/adminpanel.js")

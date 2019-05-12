@@ -1,11 +1,31 @@
-function usermodal_open()
-{
+function usermodal_open(data) {
     $('#usertrash_modal').css("display", "block");
+    $(".params").each(function () {
+        $(this).val(data[this.name])
+    });
+    $('#userimg').attr('src', data.img); //setting img source
+    $('#modalForm').append($('<input />', { //remember id
+        type: 'hidden',
+        name: '_id',
+        value: data._id
+    }));//save id
+    $('#modalForm').append($('<input />', { //remember ttype
+        type: 'hidden',
+        name: 'ttype',
+        value: data.ttype
+    }));//save doc typ
+    $('#modalForm').append($('<input />', { //remember ttype
+        type: 'hidden',
+        name: 'img',
+        value: data.img
+    }))
 }
 
-function usermodal_close()
-{
+function usermodal_close() {
     $('#usertrash_modal').css("display", "none");
+    $("input[name=_id]").remove();
+    $("input[name=ttype]").remove();
+    $("input[name=img]").remove();
 }
 
 //Sidebar fuctions
@@ -32,12 +52,122 @@ function twoComboLabel(key, val){
     return d;
 }
 
-
-//TODO Maybe it's good idea to add $(()=>{}) BUT In this case search.js won't find combolabels
-$.getJSON("/params", {},(data)=>{
-    d = $.parseJSON(data);
-    for(let k in d) {
-        $("#adminSidebarWrapper").append(twoComboLabel(k, d[k]));
-        $("#userWrapper").append(twoComboLabel(k, d[k]));
+//Fillings
+function fillSuggestions(data){
+    let list = $('#userList');
+    if( data.length === 0)
+    {
+        list.append("Suggestion list is empty");
+        return;
     }
+    data.forEach(function (sugggestion) {
+        li = $("<li />");
+        sugggestion.ttype = 'user';
+        li.text(sugggestion.name);
+        li.on('click', function () {
+            usermodal_open(sugggestion);
+        });
+        list.append(li);
+    })
+}
+
+function fillAdmin(data){
+    let list = $('#adminList');
+    list.empty();
+    if( data.length === 0)
+    {
+        list.append("Your DB is empty");
+        return;
+    }
+    data.forEach(function (sugggestion) {
+        li = $("<li />");
+        sugggestion.ttype = 'admin';
+        console.log(sugggestion);
+        li.text(sugggestion.name);
+        li.on('click', function () {
+            usermodal_open(sugggestion);
+        });
+        list.append(li);
+    })
+}
+
+//Image (oh god, i spent too much time on it)
+function readURL(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+            $('#userimg').attr('src', e.target.result);
+            $("#mehHmehHmememe").remove();
+            let form = $("#modalForm");
+            $("input[name=img]").val(e.target.result);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+function collectData(){
+    data = {};
+    //Sidebar
+    if( $("#adminList").is(":visible") )
+    {
+        $(".params").each(function () {
+            let val = $("option:selected", this).val();
+            if( val !== '0' )
+                data[$("option:first", this).text()] = val;
+        });
+    }
+    //name,region
+    let name = $("#query").val();
+    let region = $("#openMap").val();
+    /*if( region !== "" )
+        data.region = region;*/
+    if( name !== "" )
+        data.name = name;
+    return data;
+}
+
+function queryToDb(callback = false){
+    $.getJSON('/db-query', collectData(), function (data) {
+        console.log('querying');
+        console.log(data);
+        if( callback )
+            callback(data);
+    } );
+}
+
+
+//INIT
+$(()=>{
+    //Filling sidebar
+    $.getJSON("/params", {},(data)=>{
+        d = $.parseJSON(data);
+        for(let k in d) {
+            if( k !== 'name' && k !== 'description' && k !== 'region' && k!=='_id' ){
+                $("#adminSidebarWrapper").append(twoComboLabel(k, d[k]));
+                $("#userWrapper").append(twoComboLabel(k, d[k]));
+            }
+        }
+    });
+
+    //Query to suggestions
+    $.getJSON('/suggestions', {}, function (data) {
+        console.log('querying to suggestions');
+        fillSuggestions(data);
+    } );
+
+    //On change of query/params string
+    $("#query").bind('input', function () {
+        queryToDb(fillAdmin);
+    } );
+    $(".params").change(function () {
+        queryToDb(fillAdmin);
+    });
+    queryToDb(fillAdmin);
+
+    //On image change
+    $("#imgInput").change(function() {
+        readURL(this);
+    });
 });

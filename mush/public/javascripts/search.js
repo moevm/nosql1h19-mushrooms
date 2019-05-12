@@ -7,7 +7,7 @@ function miniature(item){
         class: "w3-card popup",
     });
     upWrap.append($('<img />', {
-        src: item.img[0],
+        src: item.img,
         style: "max-width: 100%"
     }));
     lwrap = $("<div />", {
