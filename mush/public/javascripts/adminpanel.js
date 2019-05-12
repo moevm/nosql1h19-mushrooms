@@ -41,7 +41,7 @@ function usermodal_close() {
 
 //Sidebar fuctions
 function admin_sidebar_open() {
-    document.getElementById("adminSidebar").style.width = "15%";
+    document.getElementById("adminSidebar").style.width = "17%";
     document.getElementById("adminSidebar").style.display = "block";
     document.getElementById("openAdminSidebar").style.visibility = 'hidden';
 }
@@ -53,7 +53,7 @@ function admin_sidebar_close() {
 //Sidebar creation
 function twoComboLabel(key, val){
     let d = $('<div />');
-    s = $('<select />', {class: "params", name: key, id: key});
+    s = $('<select />', {class: "params, params_correct", name: key, id: key});
     $('<option />', {value: 0, text: key}).appendTo(s);
     for( let k of val )
     {

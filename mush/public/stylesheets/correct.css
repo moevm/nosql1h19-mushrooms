@@ -1,0 +1,37 @@
+.params_correct {
+    width: 216px;
+    margin: 2px 5px 2px 5px;
+}
+
+#openMap{
+    height: 52px;
+}
+
+.correct-modal {
+    width: 500px;
+}
+
+.mmmmm {
+    margin: 0px 10px;
+}
+
+#adminList {
+    cursor: pointer;
+}
+
+.admin_button {
+    margin-top: 5px;
+}
+
+.search_input{
+    margin-top: 10px;
+}
+
+#openAdminSidebar {
+    margin-top: -5px;
+}
+
+#userimg {
+    width: 300px;
+    margin-top: 10px;
+}

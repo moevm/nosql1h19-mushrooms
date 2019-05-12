@@ -3,10 +3,10 @@ extends main
 block general
 
     .w3-modal#usertrash_modal
-        .w3-modal-content
+        .w3-modal-content.correct-modal
             header.w3-container.w3-border
                 .w3-row
-                    h2.w3-col.s11 Modal Header
+                    h2.w3-col.s11 Mushroom's correction
                     span.w3-button.w3-col.s1(onclick='usermodal_close()' style="font-size: 25px") &times;
             .w3-container
                 img#userimg(src="#")
@@ -21,21 +21,20 @@ block general
                     button.w3-button.w3-black(type="submit" formaction="/adminPressedTheBlackButton" style="margin: 20px 0px;") Enter
                     button.w3-button.w3-red(type="submit" formaction="/adminPressedTheRedButton" style="margin: 20px 0px;") Dismiss
 
-            footer.w3-container.w3-border Ня
 
-    .w3-row
+    .w3-row.mmmmm
         #user_trash.w3-col.s6
             h3 Mushrooms from users
             ul.w3-ul.w3-hoverable#userList
 
         #admin_search.w3-col.s6
-            #adminSidebar.w3-sidebar.w3-bar-block.w3-card.w3-animate-left(style="display: none;")
+            #adminSidebar.w3-sidebar.w3-bar-block.w3-card.w3-animate-top(style="display: none;")
                 button.w3-bar-item.w3-button.w3-xlarge(onclick='admin_sidebar_close()') Close ×
                 #adminSidebarWrapper
             .w3-row
                 button#openAdminSidebar.w3-button.w3-xlarge.w3-bar-item(onclick='admin_sidebar_open()') ☰
-                input.w3-large#query(type="text" name="name")
-                button.w3-button.w3-white.w3-border.w3-right(onclick="usermodal_open()") Создать админский гриб
+                input.w3-large#query.search_input(type="text" name="name")
+                button.w3-button.w3-white.w3-border.w3-right.admin_button(onclick="usermodal_open()") Создать админский гриб
 
             #admin_content
                 ul.w3-ul.w3-hoverable#adminList

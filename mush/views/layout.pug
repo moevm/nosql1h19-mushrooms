@@ -8,11 +8,11 @@ block general
 
     //Suggestion modal
     .w3-modal#modalform
-        .w3-modal-content
+        .w3-modal-content.correct-modal
             header.w3-container.w3-border
                 .w3-row
-                    h2.w3-col.s11 Modal Header
-                    span.w3-button.w3-col.s1(onclick='close_form()' style="font-size: 25px") &times;
+                    h2.w3-col.s11 Adding mushroom
+                    span.w3-button.w3-col.s1(onclick='close_form()' style="font-size: 25px;") &times;
             .w3-container
                 input#url_input.w3-input.w3-border(type="file" name="img" accept="image/jpeg,image/png" value="" placeholder="Image" style="margin-top: 10px;")
                 form#suggestion(action="/mushroom" method="post")
@@ -21,8 +21,6 @@ block general
                     input.w3-input.w3-border(type="text" name="region" placeholder="Region" style="margin: 10px 0px;")
                     #formWrapper
                     button.w3-button.w3-black(type="submit" style="margin: 20px 0px;") Enter
-
-            footer.w3-container.w3-border Ня
 
     //Params bar
     #leftSidebar.w3-sidebar.w3-bar-block.w3-card.w3-animate-left

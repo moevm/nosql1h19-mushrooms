@@ -12,7 +12,7 @@ $window.scroll(function() {
 //Sidebar fuctions
 function w3_open_left() {
     document.getElementById("main").style.marginLeft = "15%";
-    document.getElementById("leftSidebar").style.width = "15%";
+    document.getElementById("leftSidebar").style.width = "18%";
     document.getElementById("leftSidebar").style.display = "block";
     document.getElementById("openNav").style.visibility = 'hidden';
 }
@@ -25,7 +25,7 @@ function w3_close_left() {
 //Sidebar creation
 function ComboLabel(key, val){
     let d = $('<div />');
-    s = $('<select />', {class: "params", name: key, id: key});
+    s = $('<select />', {class: "params, params_correct", name: key, id: key});
     $('<option />', {value: 0, text: key}).appendTo(s);
     for( let k of val )
     {
