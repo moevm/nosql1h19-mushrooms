@@ -11,7 +11,7 @@ function usermodal_open(data) {
     if( data ){
         d = true;
 
-        $(".params").each(function () {
+        $(".modalParams").each(function () {
             $(this).val(data[this.name])
         });
         $('#userimg').attr('src', data.img); //setting img source
@@ -29,6 +29,15 @@ function usermodal_open(data) {
         }));
 
         $("#hmeh").val(data.img);
+    }
+    else{
+        $(".modalParams[type=text]").each(function () {
+            $(this).val("");
+        });
+        $(".modalParams:not([type=text],[type=hidden])").each(function () {
+            $(this).val('0');
+        });
+        $("#userimg").attr("src", "");
     }
 }
 
@@ -51,9 +60,9 @@ function admin_sidebar_close() {
 }
 
 //Sidebar creation
-function twoComboLabel(key, val){
+function twoComboLabel(key, val, classs){
     let d = $('<div />');
-    s = $('<select />', {class: "params, params_correct", name: key, id: key});
+    s = $('<select />', {class: classs, name: key, id: key});
     $('<option />', {value: 0, text: key}).appendTo(s);
     for( let k of val )
     {
@@ -148,7 +157,6 @@ function queryToDb(callback = false){
     } );
 }
 
-
 //INIT
 $(()=>{
     //Filling sidebar
@@ -156,8 +164,8 @@ $(()=>{
         d = $.parseJSON(data);
         for(let k in d) {
             if( k !== 'name' && k !== 'description' && k !== 'region' && k!=='_id' ){
-                $("#adminSidebarWrapper").append(twoComboLabel(k, d[k]));
-                $("#userWrapper").append(twoComboLabel(k, d[k]));
+                $("#adminSidebarWrapper").append(twoComboLabel(k, d[k], "params, params_correct"));
+                $("#userWrapper").append(twoComboLabel(k, d[k], "modalParams"));
             }
         }
     });

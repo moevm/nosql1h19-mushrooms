@@ -35,7 +35,8 @@ var params = {
     ring_type : [{ cobwebby:"c"}, {evanescent:"e"}, {flaring:"f"}, {large:"l"}, { none:"n"}, {pendant:"p"}, {sheathing:"s"}, {zone:"z"}],
     spore_print_color : [{ black:"k"}, {brown:"n"}, {buff:"b"}, {chocolate:"h"}, {green:"r"}, { orange:"o"}, {purple:"u"}, {white:"w"}, {yellow:"y"}],
     population : [{ abundant:"a"}, {clustered:"c"}, {numerous:"n"}, { scattered:"s"}, {several:"v"}, {solitary:"y"}],
-    habitat : [{ grasses:"g"}, {leaves:"l"}, {meadows:"m"}, {paths:"p"}, { urban:"u"}, {waste:"w"}, {woods:"d"}]
+    habitat : [{ grasses:"g"}, {leaves:"l"}, {meadows:"m"}, {paths:"p"}, { urban:"u"}, {waste:"w"}, {woods:"d"}],
+    edible: [{yes: "y"}, {no: "n"}]
 };
 
 var sch = new Schema({
@@ -63,8 +64,9 @@ var sch = new Schema({
     veil_color: String ,
     veil_type: String ,
     description: String,
-    region: String,
+    region: Array,
     img: String,
+    edible: String
 });
 
 //Connection for models
@@ -132,10 +134,12 @@ router.get('/suggestions', function (req, res, next) {
 //Add new/update mushroom
 router.post('/adminPressedTheBlackButton', function (req, res, next) {
     let data = req.body;
+    data.region = data.region.split(','); // , in the region into []
     if( 'ttype' in data ){
         if( data['ttype'] === 'admin' ) //update an existing mush
         {
             delete data.ttype;
+
             mushroom.updateOne({'_id': data._id},{$set: data}, function (err) {
                 if(err){
                     console.log("can't update");
@@ -167,7 +171,7 @@ router.post('/adminPressedTheBlackButton', function (req, res, next) {
         aMush = new mushroom(req.body);
         aMush.save(function (err) {
             if(err){
-                console.log("Kirito, it's 2 dangerous 2 go alone, take this stilet and stab the Administrator");
+                console.log("Kirito, it's 2 dangerous 2 go alone, take this stiletto and stab the Administrator");
             }
         })
     }
@@ -199,6 +203,7 @@ router.post('/adminPressedTheRedButton', function (req, res, next) {
 
 //Add new suggestion
 router.post('/mushroom', function (req, res, next) {
+    req.body.region = req.body.region.split(',');
     let sugg = new suggestion(req.body);
     console.log('there');
     console.log(sugg);

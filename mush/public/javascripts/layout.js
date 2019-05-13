@@ -61,6 +61,7 @@ function openModal(){
 //User's form
 function open_form() {
     $('#modalform').css("display", "block");
+
 }
 
 function close_form() {

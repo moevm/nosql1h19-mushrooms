@@ -12,10 +12,10 @@ block general
                 img#userimg(src="#")
                 input.w3-input.w3-border#imgInput(type="file" name="img" accept="image/jpeg,image/png" value="" placeholder="Image" style="margin-top: 10px;")
                 form#modalForm(method="post")
-                    input.w3-input.w3-border.params(type="text" name="name" placeholder="Name of mushroom" style="margin-top: 10px;")
-                    input.w3-input.w3-border.params(type="text" name="description" placeholder="Description" style="margin: 10px 0px;")
-                    input.w3-input.w3-border.params(type="text" name="region" placeholder="Region" style="margin: 10px 0px;")
-
+                    input.w3-input.w3-border.modalParams(type="text" name="name" placeholder="Name of mushroom" style="margin-top: 10px;")
+                    input.w3-input.w3-border.modalParams(type="text" name="description" placeholder="Description" style="margin: 10px 0px;")
+                    input.w3-input.w3-border.modalParams(type="text" name="region" placeholder="Region" style="margin: 10px 0px;")
+                    //.modalParam - is modal params, hehm
                     #userWrapper
 
                     button.w3-button.w3-black(type="submit" formaction="/adminPressedTheBlackButton" style="margin: 20px 0px;") Enter
