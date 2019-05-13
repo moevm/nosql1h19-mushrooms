@@ -48,3 +48,14 @@ function updateRegion(code = "") {
     $("#modal").css("display", "none");
 }
 
+function twoComboLabel(key, val, classs){
+    let d = $('<div />');
+    s = $('<select />', {class: classs, name: key, id: key});
+    $('<option />', {value: 0, text: key}).appendTo(s);
+    for( let k of val )
+    {
+        $('<option />', {value: Object.values(k)[0], text: Object.keys(k)[0]}).appendTo(s);
+    }
+    d.append(s);
+    return d;
+}

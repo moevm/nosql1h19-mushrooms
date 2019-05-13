@@ -91,12 +91,15 @@ $(function () {
     else {
         updateRegion("");
     }
+
     //Setting buttons
     $("#openMap").on('click', openModal) ;
     $("#resetRegion").on('click', function(){updateRegion("")});
+    $("#black").attr('formaction', '/mushroom');
+    $("#red").css('visibility', 'hidden');
 
     //Loading image to suggestions
-    $("#url_input").on('change', function (e) {
+    /*$("#url_input").on('change', function (e) {
         readFile(this.files[0], function (e) {
             let form = $("#suggestion");
             form.append($("<input />",{
@@ -105,6 +108,6 @@ $(function () {
                 value: e.target.result
             }))
         })
-    })
+    })*/
 });
 

@@ -2,25 +2,7 @@ extends main
 
 block general
 
-    .w3-modal#usertrash_modal
-        .w3-modal-content.correct-modal
-            header.w3-container.w3-border
-                .w3-row
-                    h2.w3-col.s11 Mushroom's correction
-                    span.w3-button.w3-col.s1(onclick='usermodal_close()' style="font-size: 25px") &times;
-            .w3-container
-                img#userimg(src="#")
-                input.w3-input.w3-border#imgInput(type="file" name="img" accept="image/jpeg,image/png" value="" placeholder="Image" style="margin-top: 10px;")
-                form#modalForm(method="post")
-                    input.w3-input.w3-border.modalParams(type="text" name="name" placeholder="Name of mushroom" style="margin-top: 10px;")
-                    input.w3-input.w3-border.modalParams(type="text" name="description" placeholder="Description" style="margin: 10px 0px;")
-                    input.w3-input.w3-border.modalParams(type="text" name="region" placeholder="Region" style="margin: 10px 0px;")
-                    //.modalParam - is modal params, hehm
-                    #userWrapper
-
-                    button.w3-button.w3-black(type="submit" formaction="/adminPressedTheBlackButton" style="margin: 20px 0px;") Enter
-                    button.w3-button.w3-red(type="submit" formaction="/adminPressedTheRedButton" style="margin: 20px 0px;") Dismiss
-
+    include modal
 
     .w3-row.mmmmm
         #user_trash.w3-col.s6
