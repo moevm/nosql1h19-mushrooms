@@ -63,16 +63,27 @@ function readURL(input) {
 }
 
 $(()=>{
+    //Fill form
     $.getJSON("/params", {},(data)=>{
         d = $.parseJSON(data);
         for(let k in d) {
             if( k !== 'name' && k !== 'description' && k !== 'region' && k!=='_id' ){
-                $("#userWrapper").append(twoComboLabel(k, d[k], "modalParams"));
+                $("#userWrapper").append(twoComboLabel(k, d[k], "modalParams params_correct"));
             }
         }
     });
+
     //On image change
     $("#imgInput").change(function() {
         readURL(this);
     });
+
+    //Setting up buttons
+    $("#red").click(function () {
+        $(this).closest("form").attr("action", "/adminPressedTheRedButton");
+    });
+    $("#black").click(function () {
+        $(this).closest("form").attr("action", "/adminPressedTheBlackButton");
+    })
+
 });

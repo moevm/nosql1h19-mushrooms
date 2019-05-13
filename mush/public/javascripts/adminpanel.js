@@ -52,7 +52,6 @@ function fillAdmin(data){
     data.forEach(function (sugggestion) {
         li = $("<li />");
         sugggestion.ttype = 'admin';
-        console.log(sugggestion);
         li.text(sugggestion.name);
         li.on('click', function () {
             usermodal_open(sugggestion);
@@ -91,18 +90,21 @@ function queryToDb(callback = false){
     } );
 }
 
+//Filling sidebar
+$.getJSON("/params", {},(data)=>{
+    d = $.parseJSON(data);
+    for(let k in d) {
+        if( k !== 'name' && k !== 'description' && k !== 'region' && k!=='_id' ){
+            $("#adminSidebarWrapper").append(twoComboLabel(k, d[k], "params params_correct"));
+        }
+    }
+    $(".params").change(function () {
+        queryToDb(fillAdmin);
+    });
+});
+
 //INIT
 $(()=>{
-    //Filling sidebar
-    $.getJSON("/params", {},(data)=>{
-        d = $.parseJSON(data);
-        for(let k in d) {
-            if( k !== 'name' && k !== 'description' && k !== 'region' && k!=='_id' ){
-                $("#adminSidebarWrapper").append(twoComboLabel(k, d[k], "params, params_correct"));
-            }
-        }
-    });
-
     //Query to suggestions
     $.getJSON('/suggestions', {}, function (data) {
         console.log('querying to suggestions');
@@ -113,8 +115,6 @@ $(()=>{
     $("#query").bind('input', function () {
         queryToDb(fillAdmin);
     } );
-    $(".params").change(function () {
-        queryToDb(fillAdmin);
-    });
+
     queryToDb(fillAdmin);
 });

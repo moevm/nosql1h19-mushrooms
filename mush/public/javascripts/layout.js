@@ -22,27 +22,10 @@ function w3_close_left() {
     document.getElementById("openNav").style.visibility = "visible";
 }
 
-//Sidebar creation
-function ComboLabel(key, val){
-    let d = $('<div />');
-    s = $('<select />', {class: "params, params_correct", name: key, id: key});
-    $('<option />', {value: 0, text: key}).appendTo(s);
-    for( let k of val )
-    {
-        $('<option />', {value: Object.values(k)[0], text: Object.keys(k)[0]}).appendTo(s);
-    }
-    d.append(s);
-    return d;
-}
-
-//TODO Maybe it's good idea to add $(()=>{}) BUT In this case search.js won't find combolabels
 $.getJSON("/params", {},(data)=>{
         d = $.parseJSON(data);
-        console.log(d);
         for(let k in d) {
-            $("#leftWrapper").append(ComboLabel(k, d[k]));
-            //тут я добавила эту штуку,которую бы не стоило сюда добавлять
-            $("#formWrapper").append(ComboLabel(k, d[k]));
+            $("#leftWrapper").append(twoComboLabel(k, d[k], "params params_correct"));
         }
 });
 
@@ -51,27 +34,10 @@ function openModal(){
     $('#modal').css("display", "block");
     $('#world-map').vectorMap({
         map: 'world_mill',
-        onRegionClick:function(event, code){
+        onRegionClick: function(event, code){
             updateRegion(code);
         }
     });
-}
-
-
-//User's form
-function open_form() {
-    $('#modalform').css("display", "block");
-
-}
-
-function close_form() {
-    $('#modalform').css("display", "none");
-}
-
-function readFile(file, onLoadCallback){
-    let reader = new FileReader();
-    reader.onload = onLoadCallback;
-    reader.readAsDataURL(file);
 }
 
 //Init
@@ -98,16 +64,5 @@ $(function () {
     $("#black").attr('formaction', '/mushroom');
     $("#red").css('visibility', 'hidden');
 
-    //Loading image to suggestions
-    /*$("#url_input").on('change', function (e) {
-        readFile(this.files[0], function (e) {
-            let form = $("#suggestion");
-            form.append($("<input />",{
-                type: "hidden",
-                name: "img",
-                value: e.target.result
-            }))
-        })
-    })*/
 });
 

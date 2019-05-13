@@ -213,7 +213,6 @@ router.post('/mushroom', function (req, res, next) {
     });
     console.log(req.body);
     res.render('search', {query: JSON.stringify({name: ""})}); //TODO Duct Tape
-
 });
 
 module.exports = router;

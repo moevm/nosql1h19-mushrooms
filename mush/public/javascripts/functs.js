@@ -28,7 +28,6 @@ function queryToDb(callback = false){
     } );
 }
 
-//TODO add the rest of the code
 function updateRegion(code = "") {
     let button = $("#openMap");
     if( code === "" )
