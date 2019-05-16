@@ -18,3 +18,73 @@
     overflow-wrap: normal;
 }
 
+.d-flex {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+}
+
+.mushroom__wrapper {
+    width: auto;
+    height: auto;
+    margin: 10px 50px 10px 50px;
+    background-color: lightgrey;
+}
+
+.mushroom__image-wrapper {
+
+}
+
+.mushroom__image {
+    background-color: brown;
+    width: 200px;
+    height: 200px;
+}
+
+#mush-img {
+    width: 100%;
+    overflow: hidden;
+}
+
+.mushroom__name {
+    background-color: aliceblue;
+    font-size: 14px;
+    text-align: center;
+}
+
+.mushroom__params-wrappers {
+    flex-direction: column;
+    width: 100%;
+}
+.mushroom__params-wrapper-one {
+    height: 25px;
+}
+
+.mushroom__description {
+    padding-left: 20px;
+    width: 70%;
+    background-color: coral;
+}
+
+.mushroom__region {
+    width: 30%;
+    background-color: darkseagreen;
+    padding-left: 20px;
+}
+
+.mushroom__params-wrapper-two {
+    padding-left: 20px;
+    width: 100%;
+
+}
+
+.mushroom__params-part {
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+}
+
+.mushroom__params-bruises {
+    margin-top: 10px;
+}

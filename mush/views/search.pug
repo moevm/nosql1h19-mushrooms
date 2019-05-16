@@ -8,5 +8,64 @@ block topbar
     script q = !{query}
     script(src='/javascripts/search.js')
 
+
+
 block content
+    .w3-modal#mushroom__image-modal
+        .w3-modal-content
+            span.w3-button.w3-col.s1(onclick='usermodal_close()' style="font-size: 25px") &times;
+
     #contWrap
+    #search__mushrooms-wrap
+    .mushroom__wrapper.d-flex
+        .mushroom__image-wrapper
+            .mushroom__image
+                img#mush-img(src="#", onclick='mushroom__modal_open()')
+            .mushroom__name Name
+        .mushroom__params-wrappers.d-flex
+            .mushroom__params-wrapper-one.d-flex
+                .mushroom__description Description
+                .mushroom__region UK, UI, MN, LD
+            .mushroom__params-wrapper-two.d-flex
+                .mushroom__params-part
+                    h4.mushroom__params-cap-h Cap
+                    .mushroom__params-cap-li
+                        .par cap__shape
+                        .par cap__surface
+                        .par cap__color
+                    .mushroom__params-bruises.par bruises
+                    .mushroom__params-odor.par odor
+                .mushroom__params-part
+                    h4.mushroom__params-gill-h Gill
+                    .mushroom__params-gill-li
+                        .par attachment
+                        .par spacing
+                        .par size
+                        .par color
+                .mushroom__params-part
+                    h4.mushroom__params-stalk-h Stalk
+                    .mushroom__params-stalk-li
+                        .par shape
+                        .par root
+                        .par surface above ring
+                        .par surface below ring
+                        .par color above ring
+                        .par color below ring
+                .mushroom__params-part
+                    h4.mushroom__params-veil-h Veil
+                    .mushroom__params-veil-li
+                        .par type
+                        .par color
+                    h4.mushroom__params-ring-h Ring
+                    .mushroom__params-ring-li
+                        .par number
+                        .par type
+                .mushroom__params-part
+                    h4.mushroom__params-others-h Others
+                    .mushroom__params-others-li
+                        .par spore print color
+                        .par population
+                        .par habitat
+                        .par edible
+
+

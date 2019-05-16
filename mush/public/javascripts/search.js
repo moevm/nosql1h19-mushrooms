@@ -80,3 +80,11 @@ $(()=> {
 
     queryToDb(fillContent);
 });
+
+function mushroom__modal_open() {
+    $('#mushroom__image-modal').css("display", "block");
+}
+
+function mushroom__modal_close() {
+    $('#mushroom__image-modal').css("display", "none");
+}
