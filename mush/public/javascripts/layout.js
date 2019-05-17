@@ -31,13 +31,21 @@ $.getJSON("/params", {},(data)=>{
 
 //World map
 function openModal(){
+    console.log('region was opened');
     $('#modal').css("display", "block");
     $('#world-map').vectorMap({
         map: 'world_mill',
         onRegionClick: function(event, code){
             updateRegion(code);
+            closeModal();
         }
     });
+}
+
+function closeModal(){
+    $("#world-map").empty();
+    $(".jvectormap-tip").remove(); //probably should break smth, but i don't worry at all
+    document.getElementById('modal').style.display = "none";
 }
 
 //Init
@@ -45,9 +53,8 @@ $(function () {
     //Out of modal click
     var modal = document.getElementById('modal');
     window.onmousedown = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
+        if (event.target == modal)
+            closeModal();
     };
 
     //Region load
