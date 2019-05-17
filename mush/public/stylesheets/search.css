@@ -43,7 +43,7 @@
     height: 200px;
 }
 
-#mush-img {
+.mush-img {
     width: 100%;
     overflow: hidden;
 }
