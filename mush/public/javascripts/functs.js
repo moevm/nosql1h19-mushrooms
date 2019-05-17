@@ -20,7 +20,7 @@ function collectData(){
 }
 
 function queryToDb(callback = false){
-    $.getJSON('/db-query', collectData(), function (data) {
+    $.getJSON('/db/query/main', collectData(), function (data) {
         console.log('querying');
         console.log(data);
         if( callback )

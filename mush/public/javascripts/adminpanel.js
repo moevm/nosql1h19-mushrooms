@@ -10,7 +10,7 @@ function admin_sidebar_close() {
 }
 
 function exportDB() {
-    $.getJSON('/db-query', {}, function (data) {
+    $.getJSON('/db/query/main', {}, function (data) {
         let dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data));
         let downloadAnchorNode = document.createElement('a');
         downloadAnchorNode.setAttribute("href",     dataStr);
@@ -81,7 +81,7 @@ function collectData(){
 }
 
 function queryToDb(callback = false){
-    $.getJSON('/db-query', collectData(), function (data) {
+    $.getJSON('/db/query/main', collectData(), function (data) {
         console.log('querying');
         console.log(data);
         if( callback )
@@ -105,7 +105,7 @@ $.getJSON("/params", {},(data)=>{
 //INIT
 $(()=>{
     //Query to suggestions
-    $.getJSON('/suggestions', {}, function (data) {
+    $.getJSON('/db/query/suggestions', {}, function (data) {
         console.log('querying to suggestions');
         fillSuggestions(data);
     } );

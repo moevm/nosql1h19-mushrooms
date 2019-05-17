@@ -12,5 +12,6 @@
     <orderEntry type="library" name="jquery" level="application" />
     <orderEntry type="library" name="jquery-jvectormap-world-mill" level="application" />
     <orderEntry type="library" name="js.cookie" level="application" />
+    <orderEntry type="library" name="bootstrap" level="application" />
   </component>
 </module>

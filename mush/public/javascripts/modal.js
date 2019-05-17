@@ -52,7 +52,6 @@ function usermodal_close() {
 function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
-
         reader.onload = function(e) {
             $('#userimg').attr('src', e.target.result);
             let form = $("#modalForm");
@@ -80,10 +79,10 @@ $(()=>{
 
     //Setting up buttons
     $("#red").click(function () {
-        $(this).closest("form").attr("action", "/adminPressedTheRedButton");
+        $(this).closest("form").attr("action", "/db/adminPressedTheRedButton");
     });
     $("#black").click(function () {
-        $(this).closest("form").attr("action", "/adminPressedTheBlackButton");
+        $(this).closest("form").attr("action", "/db/adminPressedTheBlackButton");
     })
 
 });
