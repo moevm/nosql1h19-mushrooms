@@ -13,6 +13,10 @@ block general
             #adminSidebar.w3-sidebar.w3-bar-block.w3-card.w3-animate-top(style="display: none;")
                 button.w3-bar-item.w3-button.w3-xlarge(onclick='admin_sidebar_close()') Close ×
                 #adminSidebarWrapper
+                #iewrap
+                    button.w3-button(onclick="exportDB()") Export db
+                    button.w3-button(onclick="importDB()") Import db
+
             h3 Admin Search
             .w3-row
                 button#openAdminSidebar.w3-button.w3-xlarge.w3-bar-item(onclick='admin_sidebar_open()') ☰

@@ -9,18 +9,17 @@ function admin_sidebar_close() {
     document.getElementById("openAdminSidebar").style.visibility = "visible";
 }
 
-//Sidebar creation
-/*function twoComboLabel(key, val, classs){
-    let d = $('<div />');
-    s = $('<select />', {class: classs, name: key, id: key});
-    $('<option />', {value: 0, text: key}).appendTo(s);
-    for( let k of val )
-    {
-        $('<option />', {value: Object.values(k)[0], text: Object.keys(k)[0]}).appendTo(s);
-    }
-    d.append(s);
-    return d;
-}*/
+function exportDB() {
+    $.getJSON('/db-query', {}, function (data) {
+        let dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data));
+        let downloadAnchorNode = document.createElement('a');
+        downloadAnchorNode.setAttribute("href",     dataStr);
+        downloadAnchorNode.setAttribute("download", "backup.json");
+        document.body.appendChild(downloadAnchorNode); // required for firefox
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
+    });
+}
 
 //Fillings
 function fillSuggestions(data){
