@@ -34,6 +34,8 @@ var sch = new Schema({
     edible: String
 });
 
+//TODO add auth for every action
+
 //Connection for models
 const connection = mongoose.createConnection('mongodb+srv://Totem:12345@db-4mje1.gcp.mongodb.net/Mushrooms', {useNewUrlParser: true});
 connection.on('open', function () {
@@ -146,6 +148,15 @@ router.post('/adminPressedTheRedButton', function (req, res, next) {
         }
     }
     res.render('adminpanel');
+});
+
+//Import
+router.post('/import', function (req,res,next) {
+    mushroom.create(req.body, function (err) {
+        if(err){
+            console.log('smth went wrong');
+        }
+    })
 });
 
 module.exports = router;

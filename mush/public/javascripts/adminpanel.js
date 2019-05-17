@@ -10,10 +10,14 @@ function admin_sidebar_close() {
 }
 
 function exportDB() {
-    $.getJSON('/db/query/main', {}, function (data) {
-        let dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data));
+    $.getJSON('/db/query/main', {}, function (res) {
+        res.forEach(function (item) {
+            delete item._id;
+        });
+        console.log(res);
+        let dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(res));
         let downloadAnchorNode = document.createElement('a');
-        downloadAnchorNode.setAttribute("href",     dataStr);
+        downloadAnchorNode.setAttribute("href", dataStr);
         downloadAnchorNode.setAttribute("download", "backup.json");
         document.body.appendChild(downloadAnchorNode); // required for firefox
         downloadAnchorNode.click();
@@ -21,7 +25,29 @@ function exportDB() {
     });
 }
 
-//Fillings
+function importDB() {
+    fileIn = $("<input />", {
+        type: 'file',
+        style: 'display: none',
+    });
+
+    fileIn.change(function () {
+        let reader = new FileReader();
+        reader.onload = function (event) {
+            let data = JSON.parse(event.target.result);
+            data.forEach(function (item) {
+                $.post('/db/import', item, function () {
+                });
+            });
+            queryToDb(fillAdmin);
+            alert("Go take a brake, it's gonna take like 10*n sec")
+        };
+        reader.readAsText(event.target.files[0]);
+    });
+    fileIn.click();
+}
+
+//Fillers
 function fillSuggestions(data){
     let list = $('#userList');
     if( data.length === 0)
