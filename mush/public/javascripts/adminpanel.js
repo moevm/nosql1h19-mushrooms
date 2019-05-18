@@ -49,6 +49,7 @@ function importDB() {
 //Fillers
 function fillSuggestions(data){
     let list = $('#userList');
+    list.empty();
     if( data.length === 0)
     {
         list.append("Suggestion list is empty");

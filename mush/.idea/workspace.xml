@@ -6,11 +6,10 @@
       <change beforePath="$PROJECT_DIR$/../LICENSE" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/javascripts/adminpanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/adminpanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/javascripts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/javascripts/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/layout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/javascripts/modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/modal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/javascripts/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/search.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/db.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/modal.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/modal.pug" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" />
@@ -92,8 +91,8 @@
           <entry key="cpp" value="1" />
           <entry key="css" value="15" />
           <entry key="gitignore" value="1" />
-          <entry key="js" value="100" />
-          <entry key="pug" value="51" />
+          <entry key="js" value="109" />
+          <entry key="pug" value="52" />
           <entry key="www" value="4" />
         </counts>
       </usages-collector>
@@ -101,152 +100,105 @@
         <counts>
           <entry key="C++" value="1" />
           <entry key="CSS" value="15" />
-          <entry key="Jade" value="51" />
-          <entry key="JavaScript" value="104" />
+          <entry key="Jade" value="52" />
+          <entry key="JavaScript" value="113" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="140" />
-          <entry key="js" value="10247" />
-          <entry key="pug" value="1278" />
+          <entry key="js" value="10450" />
+          <entry key="pug" value="1283" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="140" />
-          <entry key="Jade" value="1278" />
-          <entry key="JavaScript" value="10247" />
+          <entry key="Jade" value="1283" />
+          <entry key="JavaScript" value="10450" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.34236267">
-      <split-first>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/views/modal.pug">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="476">
-                  <caret line="16" column="60" selection-start-line="16" selection-start-column="60" selection-end-line="16" selection-end-column="60" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/routes/db.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="95">
-                  <caret line="83" column="40" selection-start-line="83" selection-start-column="14" selection-end-line="83" selection-end-column="40" />
-                  <folding>
-                    <element signature="e#138#841#0" />
-                    <element signature="e#1072#1124#0" />
-                    <element signature="e#1384#1590#0" />
-                    <element signature="e#1446#1504#0" />
-                    <element signature="e#1555#1586#0" />
-                    <element signature="e#1679#1760#0" />
-                    <element signature="e#1726#1757#0" />
-                    <element signature="e#1836#2178#0" />
-                    <element signature="e#2007#2067#0" />
-                    <element signature="e#2398#3316#0" />
-                    <element signature="e#2474#2705#0" />
-                    <element signature="e#2586#2693#0" />
-                    <element signature="e#2611#2679#0" />
-                    <element signature="e#2758#3310#0" />
-                    <element signature="e#2931#3299#0" />
-                    <element signature="e#2958#3035#0" />
-                    <element signature="e#3056#3285#0" />
-                    <element signature="e#3132#3266#0" />
-                    <element signature="e#3325#3619#0" />
-                    <element signature="e#3451#3612#0" />
-                    <element signature="e#3472#3602#0" />
-                    <element signature="e#3793#4321#0" />
-                    <element signature="e#3831#4064#0" />
-                    <element signature="e#3913#4052#0" />
-                    <element signature="e#3940#4038#0" />
-                    <element signature="e#4077#4315#0" />
-                    <element signature="e#4165#4304#0" />
-                    <element signature="e#4192#4290#0" />
-                    <element signature="e#4447#4617#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="8">
-                  <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/javascripts/functs.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret column="22" selection-start-column="22" selection-end-column="22" />
-                  <folding>
-                    <element signature="n#!!block;n#collectData#0" />
-                    <element signature="n#!!block;n#updateRegion#0" />
-                    <element signature="n#!!block;n#twoComboLabel#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/views/adminpanel.pug">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-81">
-                  <caret column="10" lean-forward="true" selection-start-column="10" selection-end-column="10" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/public/javascripts/modal.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="69">
-                  <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
-                  <folding>
-                    <element signature="n#!!block;n#usermodal_open#0" />
-                    <element signature="n#!!block;n#usermodal_close#0" />
-                    <element signature="n#!!block;n#red#0" />
-                    <element signature="n#!!block;n#readURL#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/javascripts/adminpanel.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="171">
-                  <caret line="110" column="27" lean-forward="true" selection-start-line="110" selection-start-column="27" selection-end-line="110" selection-end-column="27" />
-                  <folding>
-                    <element signature="n#!!block;n#admin_sidebar_open#0" />
-                    <element signature="n#!!block;n#admin_sidebar_close#0" />
-                    <element signature="n#!!block;n#exportDB#0" />
-                    <element signature="n#!!block;n#importDB#0" />
-                    <element signature="n#!!block;n#fillSuggestions#0" />
-                    <element signature="n#!!block;n#fillAdmin#0" />
-                    <element signature="n#!!block;n#collectData#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/modal.pug">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="64" selection-start-line="16" selection-start-column="64" selection-end-line="16" selection-end-column="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/modal.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="106" column="30" lean-forward="true" selection-start-line="106" selection-start-column="30" selection-end-line="106" selection-end-column="30" />
+              <folding>
+                <element signature="n#!!block;n#readURL#0" />
+                <element signature="n#!!block;n#collectModal#0" />
+                <element signature="n#!!block;n#usermodal_open#0" />
+                <element signature="e#944#996#0" />
+                <element signature="n#!!block;n#usermodal_close#0" />
+                <element signature="n#!!block;n#red#0" />
+                <element signature="e#3194#3495#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/layout.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="668">
+              <caret line="70" column="20" selection-start-line="70" selection-start-column="20" selection-end-line="70" selection-end-column="20" />
+              <folding>
+                <element signature="e#171#238#0" />
+                <element signature="n#!!block;n#w3_open_left#0" />
+                <element signature="n#!!block;n#w3_close_left#0" />
+                <element signature="e#810#951#0" />
+                <element signature="n#!!block;n#openModal#0" />
+                <element signature="n#!!block;n#closeModal#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/db.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="119" column="41" lean-forward="true" selection-start-line="119" selection-start-column="41" selection-end-line="119" selection-end-column="41" />
+              <folding>
+                <element signature="e#138#841#0" />
+                <element signature="e#1072#1124#0" />
+                <element signature="e#1418#1624#0" />
+                <element signature="e#1713#1794#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/adminpanel.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="116">
+              <caret line="51" column="17" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
+              <folding>
+                <element signature="n#!!block;n#admin_sidebar_open#0" />
+                <element signature="n#!!block;n#admin_sidebar_close#0" />
+                <element signature="n#!!block;n#exportDB#0" />
+                <element signature="n#!!block;n#importDB#0" />
+                <element signature="n#!!block;n#collectData#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -277,6 +229,7 @@
       <find>/adminPressedTheRedButton</find>
       <find>collectData</find>
       <find>modalForm</find>
+      <find>ttype</find>
     </findStrings>
     <dirStrings>
       <dir>D:\Un\6\БД\nosql1h19-mushrooms\mush\public\javascripts</dir>
@@ -306,17 +259,17 @@
         <option value="$PROJECT_DIR$/views/search.pug" />
         <option value="$PROJECT_DIR$/public/stylesheets/popup.css" />
         <option value="$PROJECT_DIR$/public/stylesheets/layout.css" />
-        <option value="$PROJECT_DIR$/public/javascripts/search.js" />
         <option value="$PROJECT_DIR$/views/layout.pug" />
         <option value="$PROJECT_DIR$/public/stylesheets/correct.css" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/views/adminpanel.pug" />
-        <option value="$PROJECT_DIR$/public/javascripts/layout.js" />
         <option value="$PROJECT_DIR$/public/javascripts/index.js" />
         <option value="$PROJECT_DIR$/public/javascripts/functs.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/adminpanel.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/search.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/layout.js" />
         <option value="$PROJECT_DIR$/routes/db.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/adminpanel.js" />
         <option value="$PROJECT_DIR$/public/javascripts/modal.js" />
         <option value="$PROJECT_DIR$/views/modal.pug" />
       </list>
@@ -449,12 +402,12 @@
       <workItem from="1557687872912" duration="2870000" />
       <workItem from="1557707730408" duration="20749000" />
       <workItem from="1557744081295" duration="604000" />
-      <workItem from="1558094870913" duration="21657000" />
+      <workItem from="1558094870913" duration="24876000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="230071000" />
+    <option name="totallyTimeSpent" value="233290000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -469,33 +422,13 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7563694" visible="true" weight="0.12161269" />
-      <window_info id="Structure" order="1" sideWeight="0.24363057" side_tool="true" weight="0.1559815" />
-      <window_info id="npm" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32551318" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49966952" visible="true" weight="0.2947214" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.398827" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32844576" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50033045" side_tool="true" weight="0.2580645" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32258064" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-    <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7563694" visible="true" weight="0.12161269" />
       <window_info id="Structure" order="1" sideWeight="0.24363057" side_tool="true" weight="0.1559815" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32697946" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49966952" weight="0.4090909" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32551318" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49966952" visible="true" weight="0.29178885" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.398827" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -503,11 +436,11 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50033045" side_tool="true" weight="0.2580645" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32258064" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.0" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout-to-restore>
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -662,34 +595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="81" column="3" lean-forward="true" selection-start-line="81" selection-start-column="3" selection-end-line="81" selection-end-column="3" />
-          <folding>
-            <element signature="n#!!block;n#miniature#0" />
-            <element signature="e#103#220#0" />
-            <element signature="e#254#317#0" />
-            <element signature="e#346#429#0" />
-            <element signature="e#484#542#0" />
-            <element signature="e#643#797#0" />
-            <element signature="e#825#1093#0" />
-            <element signature="e#906#1087#0" />
-            <element signature="e#964#1074#0" />
-            <element signature="n#!!block;n#fillContent#0" />
-            <element signature="e#1193#2071#0" />
-            <element signature="e#1277#1345#0" />
-            <element signature="e#1472#1557#0" />
-            <element signature="e#1678#1717#0" />
-            <element signature="e#1783#1822#0" />
-            <element signature="e#1862#1957#0" />
-            <element signature="e#2007#2038#0" />
-            <element signature="n#!!block;n#mushroom__modal_open#0" />
-            <element signature="n#!!block;n#mushroom__modal_close#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/adminauth.pug">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -708,25 +613,6 @@
             <element signature="e#2779#2967#0" />
             <element signature="e#3024#3081#0" />
             <element signature="e#3167#3225#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/layout.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
-          <folding>
-            <element signature="e#171#238#0" />
-            <element signature="n#!!block;n#w3_open_left#0" />
-            <element signature="n#!!block;n#w3_close_left#0" />
-            <element signature="e#810#967#0" />
-            <element signature="n#!!block;n#openModal#0" />
-            <element signature="n#!!block;n#closeModal#0" />
-            <element signature="e#1495#2081#0" />
-            <element signature="e#1614#1682#0" />
-            <element signature="e#1757#1809#0" />
-            <element signature="e#1819#1852#0" />
           </folding>
         </state>
       </provider>
@@ -771,22 +657,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/adminpanel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="110" column="27" lean-forward="true" selection-start-line="110" selection-start-column="27" selection-end-line="110" selection-end-column="27" />
-          <folding>
-            <element signature="n#!!block;n#admin_sidebar_open#0" />
-            <element signature="n#!!block;n#admin_sidebar_close#0" />
-            <element signature="n#!!block;n#exportDB#0" />
-            <element signature="n#!!block;n#importDB#0" />
-            <element signature="n#!!block;n#fillSuggestions#0" />
-            <element signature="n#!!block;n#fillAdmin#0" />
-            <element signature="n#!!block;n#collectData#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8">
@@ -794,61 +664,86 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="187" column="3" selection-start-line="187" selection-start-column="3" selection-end-line="187" selection-end-column="3" />
+          <folding>
+            <element signature="n#!!block;n#miniature#0" />
+            <element signature="e#241#1516#0" />
+            <element signature="e#128#135#1" expanded="true" />
+            <element signature="n#!!block;n#fillContent#0" />
+            <element signature="e#5737#5805#0" />
+            <element signature="e#5932#6017#0" />
+            <element signature="e#6243#6282#0" />
+            <element signature="e#6322#6417#0" />
+            <element signature="e#6467#6498#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/layout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="668">
+          <caret line="70" column="20" selection-start-line="70" selection-start-column="20" selection-end-line="70" selection-end-column="20" />
+          <folding>
+            <element signature="e#171#238#0" />
+            <element signature="n#!!block;n#w3_open_left#0" />
+            <element signature="n#!!block;n#w3_close_left#0" />
+            <element signature="e#810#951#0" />
+            <element signature="n#!!block;n#openModal#0" />
+            <element signature="n#!!block;n#closeModal#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/adminpanel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="51" column="17" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
+          <folding>
+            <element signature="n#!!block;n#admin_sidebar_open#0" />
+            <element signature="n#!!block;n#admin_sidebar_close#0" />
+            <element signature="n#!!block;n#exportDB#0" />
+            <element signature="n#!!block;n#importDB#0" />
+            <element signature="n#!!block;n#collectData#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/db.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="83" column="40" selection-start-line="83" selection-start-column="14" selection-end-line="83" selection-end-column="40" />
+        <state relative-caret-position="399">
+          <caret line="119" column="41" lean-forward="true" selection-start-line="119" selection-start-column="41" selection-end-line="119" selection-end-column="41" />
           <folding>
             <element signature="e#138#841#0" />
             <element signature="e#1072#1124#0" />
-            <element signature="e#1384#1590#0" />
-            <element signature="e#1446#1504#0" />
-            <element signature="e#1555#1586#0" />
-            <element signature="e#1679#1760#0" />
-            <element signature="e#1726#1757#0" />
-            <element signature="e#1836#2178#0" />
-            <element signature="e#2007#2067#0" />
-            <element signature="e#2398#3316#0" />
-            <element signature="e#2474#2705#0" />
-            <element signature="e#2586#2693#0" />
-            <element signature="e#2611#2679#0" />
-            <element signature="e#2758#3310#0" />
-            <element signature="e#2931#3299#0" />
-            <element signature="e#2958#3035#0" />
-            <element signature="e#3056#3285#0" />
-            <element signature="e#3132#3266#0" />
-            <element signature="e#3325#3619#0" />
-            <element signature="e#3451#3612#0" />
-            <element signature="e#3472#3602#0" />
-            <element signature="e#3793#4321#0" />
-            <element signature="e#3831#4064#0" />
-            <element signature="e#3913#4052#0" />
-            <element signature="e#3940#4038#0" />
-            <element signature="e#4077#4315#0" />
-            <element signature="e#4165#4304#0" />
-            <element signature="e#4192#4290#0" />
-            <element signature="e#4447#4617#0" />
+            <element signature="e#1418#1624#0" />
+            <element signature="e#1713#1794#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/modal.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+        <state relative-caret-position="289">
+          <caret line="106" column="30" lean-forward="true" selection-start-line="106" selection-start-column="30" selection-end-line="106" selection-end-column="30" />
           <folding>
+            <element signature="n#!!block;n#readURL#0" />
+            <element signature="n#!!block;n#collectModal#0" />
             <element signature="n#!!block;n#usermodal_open#0" />
+            <element signature="e#944#996#0" />
             <element signature="n#!!block;n#usermodal_close#0" />
             <element signature="n#!!block;n#red#0" />
-            <element signature="n#!!block;n#readURL#0" />
+            <element signature="e#3194#3495#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/modal.pug">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="16" column="60" selection-start-line="16" selection-start-column="60" selection-end-line="16" selection-end-column="60" />
+        <state relative-caret-position="272">
+          <caret line="16" column="64" selection-start-line="16" selection-start-column="64" selection-end-line="16" selection-end-column="64" />
         </state>
       </provider>
     </entry>

@@ -1,5 +1,3 @@
-//TODO miniatures overflow
-
 function miniature(item){
     console.log(item);
     upWrap = "";
@@ -188,4 +186,3 @@ $(()=> {
 
     queryToDb(fillContent);
 });
-

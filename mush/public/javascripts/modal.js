@@ -1,6 +1,28 @@
 let mcls = "modalParams";
 let params = [];
 
+//Image (oh god, i spent too much time on it)
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $('#userimg').attr('src', e.target.result);
+            $("#hmeh").val(e.target.result);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+function collectModal(){
+    let data = {};
+    params.each(function () {
+        let val = $(this).val();
+        let name = $(this).attr('name');
+        data[name] = val;
+    });
+    return data;
+}
+
 function usermodal_open(data) {
     $('#usertrash_modal').css("display", "block");
     let d = false;
@@ -63,6 +85,10 @@ function red() {
         success: function (msg) {
             usermodal_close();
             queryToDb(fillAdmin);
+            $.getJSON('/db/query/suggestions', {}, function (data) {
+                console.log('querying to suggestions');
+                fillSuggestions(data);
+            } );
         },
         error: function (err) {
             if( err )
@@ -70,42 +96,30 @@ function red() {
         }
     });
 }
-function black() {
+function black(search) {
     $.ajax({
         type: 'POST',
         async: true,
         url: '/db/adminPressedTheBlackButton',
         data: collectModal(),
         success: function (msg) {
+            console.log(search);
             usermodal_close();
-            queryToDb(fillAdmin);
+            if( !search ){
+                console.log('there')
+                queryToDb(fillAdmin);
+                $.getJSON('/db/query/suggestions', {}, function (data) {
+                    console.log('querying to suggestions');
+                    fillSuggestions(data);
+                } );
+            }
+
         },
         error: function (err) {
             if( err )
                 console.log("seems like red doesn't work", err);
         }
     });
-}
-//Image (oh god, i spent too much time on it)
-function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            $('#userimg').attr('src', e.target.result);
-            $("#hmeh").val(e.target.result);
-        };
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-
-function collectModal(){
-    let data = {};
-    params.each(function () {
-        let val = $(this).val();
-        let name = $(this).attr('name');
-        data[name] = val;
-    });
-    return data;
 }
 
 $(()=>{
@@ -121,9 +135,4 @@ $(()=>{
     $("#imgInput").change(function() {
         readURL(this);
     }); //on img change
-
-    //Setting up buttons
-    $("#black").click(function () {
-        $(this).closest("form").attr("action", "/db/adminPressedTheBlackButton");
-    })
 });

@@ -68,7 +68,9 @@ $(function () {
     //Setting buttons
     $("#openMap").on('click', openModal) ;
     $("#resetRegion").on('click', function(){updateRegion("")});
-    $("#black").attr('formaction', '/db/add/main');
+    document.getElementById("black").onclick = function () {
+        black(true);
+    };
     $("#red").css('visibility', 'hidden');
 
 });

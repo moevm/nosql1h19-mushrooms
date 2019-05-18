@@ -115,16 +115,17 @@ router.post('/adminPressedTheBlackButton', function (req, res, next) {
             })
         }
     }
-    else{ //Admin's mushroom
+    else{ //From layout
         console.log(req.body);
-        aMush = new mushroom(req.body);
+        aMush = new suggestion(req.body);
         aMush.save(function (err) {
             if(err){
                 console.log("Kirito, it's 2 dangerous 2 go alone, take this stiletto and stab the Administrator");
             }
         })
     }
-    res.render('adminpanel');
+    res.status(200);
+    res.send({'admin': 'nechelovek'});
 });
 
 //Delete mushroom
