@@ -130,7 +130,6 @@ router.post('/adminPressedTheBlackButton', function (req, res, next) {
 //Delete mushroom
 router.post('/adminPressedTheRedButton', function (req, res, next) {
     let data = req.body;
-
     if( 'ttype' in data ){
         if( data.ttype === 'admin' ){ //form main db
             mushroom.deleteOne({"_id": data._id}, function (err) {
@@ -147,7 +146,8 @@ router.post('/adminPressedTheRedButton', function (req, res, next) {
             })
         }
     }
-    res.render('adminpanel');
+    res.status(200);
+    res.send({'ti':'pidor'});
 });
 
 //Import

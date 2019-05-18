@@ -24,7 +24,6 @@ function exportDB() {
         downloadAnchorNode.remove();
     });
 }
-
 function importDB() {
     fileIn = $("<input />", {
         type: 'file',
@@ -108,8 +107,6 @@ function collectData(){
 
 function queryToDb(callback = false){
     $.getJSON('/db/query/main', collectData(), function (data) {
-        console.log('querying');
-        console.log(data);
         if( callback )
             callback(data);
     } );

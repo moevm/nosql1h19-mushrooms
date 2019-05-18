@@ -1,17 +1,21 @@
+let mcls = "modalParams";
+let params = [];
+
 function usermodal_open(data) {
     $('#usertrash_modal').css("display", "block");
-    d = false;
+    let d = false;
     let form = $('#modalForm');
     form.append($('<input />', { //save img
         type: 'hidden',
         name: 'img',
-        id: "hmeh"
+        id: "hmeh",
+        class: mcls
     }));
 
     if( data ){
         d = true;
 
-        $(".modalParams").each(function () {
+        params.each(function () {
             $(this).val(data[this.name])
         });
         $('#userimg').attr('src', data.img); //setting img source
@@ -19,13 +23,15 @@ function usermodal_open(data) {
         form.append($('<input />', { //save id
             type: 'hidden',
             name: '_id',
-            value: data._id
+            value: data._id,
+            class: mcls
         }));
 
         form.append($('<input />', { //save doc typ
             type: 'hidden',
             name: 'ttype',
-            value: data.ttype
+            value: data.ttype,
+            class: mcls
         }));
 
         $("#hmeh").val(data.img);
@@ -39,8 +45,8 @@ function usermodal_open(data) {
         });
         $("#userimg").attr("src", "");
     }
+    params = $('.'+ mcls);
 }
-
 function usermodal_close() {
     $('#usertrash_modal').css("display", "none");
     $("input[name=_id]").remove();
@@ -48,21 +54,61 @@ function usermodal_close() {
     $("#hmeh").remove();
 }
 
+function red() {
+    $.ajax({
+        type: 'POST',
+        async: true,
+        url: '/db/adminPressedTheRedButton',
+        data: collectModal(),
+        success: function (msg) {
+            usermodal_close();
+            queryToDb(fillAdmin);
+        },
+        error: function (err) {
+            if( err )
+                console.log("seems like red doesn't work", err);
+        }
+    });
+}
+function black() {
+    $.ajax({
+        type: 'POST',
+        async: true,
+        url: '/db/adminPressedTheBlackButton',
+        data: collectModal(),
+        success: function (msg) {
+            usermodal_close();
+            queryToDb(fillAdmin);
+        },
+        error: function (err) {
+            if( err )
+                console.log("seems like red doesn't work", err);
+        }
+    });
+}
 //Image (oh god, i spent too much time on it)
 function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
         reader.onload = function(e) {
             $('#userimg').attr('src', e.target.result);
-            let form = $("#modalForm");
             $("#hmeh").val(e.target.result);
         };
         reader.readAsDataURL(input.files[0]);
     }
 }
 
+function collectModal(){
+    let data = {};
+    params.each(function () {
+        let val = $(this).val();
+        let name = $(this).attr('name');
+        data[name] = val;
+    });
+    return data;
+}
+
 $(()=>{
-    //Fill form
     $.getJSON("/params", {},(data)=>{
         d = $.parseJSON(data);
         for(let k in d) {
@@ -70,19 +116,14 @@ $(()=>{
                 $("#userWrapper").append(twoComboLabel(k, d[k], "modalParams params_correct"));
             }
         }
-    });
-
-    //On image change
+        params = $('.'+ mcls);
+    }); //fill values
     $("#imgInput").change(function() {
         readURL(this);
-    });
+    }); //on img change
 
     //Setting up buttons
-    $("#red").click(function () {
-        $(this).closest("form").attr("action", "/db/adminPressedTheRedButton");
-    });
     $("#black").click(function () {
         $(this).closest("form").attr("action", "/db/adminPressedTheBlackButton");
     })
-
 });

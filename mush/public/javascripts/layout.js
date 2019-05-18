@@ -23,10 +23,10 @@ function w3_close_left() {
 }
 
 $.getJSON("/params", {},(data)=>{
-        d = $.parseJSON(data);
-        for(let k in d) {
-            $("#leftWrapper").append(twoComboLabel(k, d[k], "params params_correct"));
-        }
+    d = $.parseJSON(data);
+    for(let k in d) {
+        $("#leftWrapper").append(twoComboLabel(k, d[k], "params params_correct"));
+    }
 });
 
 //World map
