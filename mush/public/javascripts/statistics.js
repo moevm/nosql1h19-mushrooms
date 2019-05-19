@@ -57,3 +57,13 @@ function getRandomColor() {
     }
     return color;
 }
+
+function statistics_sidebar_open() {
+    document.getElementById("statisticsSidebar").style.width = "17%";
+    document.getElementById("statisticsSidebar").style.display = "block";
+    document.getElementById("openStatisticsSidebar").style.visibility = 'hidden';
+}
+function statistics_sidebar_close() {
+    document.getElementById("statisticsSidebar").style.display = "none";
+    document.getElementById("openStatisticsSidebar").style.visibility = "visible";
+}

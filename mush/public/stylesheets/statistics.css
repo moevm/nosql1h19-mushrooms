@@ -1,0 +1,12 @@
+#left {
+    border: 2px solid gray;
+    height: 100%;
+}
+
+#rightUp {
+    border: 2px solid gray;
+}
+
+#rightDown {
+    border: 2px solid gray;
+}
