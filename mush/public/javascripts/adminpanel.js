@@ -128,6 +128,10 @@ $.getJSON("/params", {},(data)=>{
 
 //INIT
 $(()=>{
+    document.getElementById('adminMush').onclick = function (){
+        usermodal_open({ttype:'admin'});
+    }
+
     //Query to suggestions
     $.getJSON('/db/query/suggestions', {}, function (data) {
         console.log('querying to suggestions');

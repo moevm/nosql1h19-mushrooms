@@ -25,7 +25,6 @@ function collectModal(){
 
 function usermodal_open(data) {
     $('#usertrash_modal').css("display", "block");
-    let d = false;
     let form = $('#modalForm');
     form.append($('<input />', { //save img
         type: 'hidden',
@@ -35,28 +34,37 @@ function usermodal_open(data) {
     }));
 
     if( data ){
-        d = true;
+        if( Object.keys(data)[0] === 'ttype' ) //for admin's button
+        {
+            form.append($('<input />', { //save doc typ
+                type: 'hidden',
+                name: 'ttype',
+                value: data.ttype,
+                class: mcls
+            }));
+        }
+        else{
+            params.each(function () {
+                $(this).val(data[this.name])
+            });
+            $('#userimg').attr('src', data.img); //setting img source
 
-        params.each(function () {
-            $(this).val(data[this.name])
-        });
-        $('#userimg').attr('src', data.img); //setting img source
+            form.append($('<input />', { //save id
+                type: 'hidden',
+                name: '_id',
+                value: data._id,
+                class: mcls
+            }));
 
-        form.append($('<input />', { //save id
-            type: 'hidden',
-            name: '_id',
-            value: data._id,
-            class: mcls
-        }));
+            form.append($('<input />', { //save doc typ
+                type: 'hidden',
+                name: 'ttype',
+                value: data.ttype,
+                class: mcls
+            }));
 
-        form.append($('<input />', { //save doc typ
-            type: 'hidden',
-            name: 'ttype',
-            value: data.ttype,
-            class: mcls
-        }));
-
-        $("#hmeh").val(data.img);
+            $("#hmeh").val(data.img);
+        }
     }
     else{
         $(".modalParams[type=text]").each(function () {

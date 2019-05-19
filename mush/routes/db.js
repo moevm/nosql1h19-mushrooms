@@ -70,13 +70,10 @@ router.get('/query/suggestions', function (req, res, next) {
 router.post('/add/main', function (req, res, next) {
     req.body.region = req.body.region.split(',');
     let sugg = new suggestion(req.body);
-    console.log('there');
-    console.log(sugg);
     sugg.save(function (err) {
         if( err )
             console.log('NANIII');
     });
-    console.log(req.body);
     res.render('search', {query: JSON.stringify({name: ""})}); //TODO Duct Tape
 });
 
@@ -88,18 +85,31 @@ router.post('/adminPressedTheBlackButton', function (req, res, next) {
         if( data['ttype'] === 'admin' ) //update an existing mush
         {
             delete data.ttype;
+            if( '_id' in data )
+            {
+                mushroom.updateOne({'_id': data._id},{$set: data}, function (err) {
+                    if(err){
+                        console.log("can't update");
+                    }
+                } )
+            }
+            else{
+                let m = new mushroom(data);
+                m.save(function (err) {
+                    if( err )
+                        console.log(err);
+                    else{
+                        console.log("admin's mush")
+                    }
+                })
+            }
 
-            mushroom.updateOne({'_id': data._id},{$set: data}, function (err) {
-                if(err){
-                    console.log("can't update");
-                }
-            } )
         }
         else //add new one from suggestions
         {
             delete data.ttype;
             let id = data._id;
-            delete data._id
+            delete data._id;
 
             let mush = new mushroom(data);
             mush.save(function (err) {
