@@ -1,20 +1,3 @@
-//Data
-let edData = {
-    data: [],
-    labels: [],
-    colours: []
-};
-let regData = {
-    data: [],
-    labels: [],
-    colours: []
-};
-let parData = {
-    data: [],
-    labels: [],
-    colours: []
-};
-
 //Charts
 let regChart;
 let edChart;
@@ -26,6 +9,15 @@ let edibleC;
 let paramC;
 
 $(()=>{
+    //Canvas
+    regionC = $('#regionCanvas');
+    edibleC = $('#edibleCanvas');
+    paramC = $('#paramCanvas');
+
+    regChart = new Chart(regionC[0].getContext('2d'), {type: 'doughnut', data: createChartData('region')});
+    edChart = new Chart(edibleC[0].getContext('2d'), {type: 'pie', data: createChartData('edible')});
+    parChart = new Chart(paramC[0].getContext('2d'), {type: 'pie', data: createChartData('region')});
+
     //INIT
     //fill sidebar
     $.getJSON("/params", {},(data)=>{
@@ -35,46 +27,25 @@ $(()=>{
         }
         $(".params").change(updateChart);
     });
-
-    //Canvas
-    regionC = $('#regionCanvas');
-    edibleC = $('#edibleCanvas');
-    paramC = $('#paramCanvas');
-
-    $.get('/db/stats/edible', function (res) {
-        console.log('gained', res);
-        fillData(res, edData);
-    });
-
-    $.get('/db/stats/region', function (res) {
-        fillData(res, regData);
-    });
-
-    regChart = createChart(regionC[0].getContext('2d'), regData, 'doughnut', 'Region stats');
-    edChart = createChart(edibleC[0].getContext('2d'), edData, 'pie', 'Edibility');
-    parChart = createChart(paramC[0].getContext('2d'), parData, 'pie', 'Query by parameters');
 });
 
-function createChart(context, dataObj, type, label) {
-    let chart = new Chart(context, {
-        type: type,
-        data: {
-            labels: dataObj.labels,
-            datasets: [{
-                label: label,
-                backgroundColor: dataObj.colours,
-                data: dataObj.data
-            }]
-        },
+function createChartData(url, reqData = {}) {
+    let chartData = {
+        labels: [],
+        datasets: [{
+            backgroundColor: [],
+            data: []
+        }]
+    };
+    $.get('/db/stats/' + url, reqData, function (res) {
+        console.log('gained', res);
+        res.forEach(function (it) {
+            chartData.labels.push(it._id);
+            chartData.datasets[0].data.push(it.count);
+            chartData.datasets[0].backgroundColor.push(getRandomColor());
+        })
     });
-}
-
-function fillData(src, dst) {
-    src.forEach(function (it) {
-        dst.data.push(it.count);
-        dst.labels.push(it._id);
-        dst.colours.push(getRandomColor());
-    })
+    return chartData;
 }
 
 function getRandomColor() {
@@ -87,7 +58,6 @@ function getRandomColor() {
 }
 
 function updateChart() {
-    console.log('updating params');
     let data = {};
     $(".params").each(function () {
         let val = $(this).val();
@@ -95,18 +65,8 @@ function updateChart() {
             data[$(this).attr('name')] = val;
     });
     console.log(data);
-    $.ajax({
-        type: 'GET',
-        url: '/db/stats/params',
-        data: data,
-        success: function (res) {
-            console.log(res);
-            fillData(res, parData);
-            //paramC[0].getContext('2d').clearRect(0,0, paramC[0].width, paramC[0].height);
-            //parChart.clear();
-            parChart = createChart(paramC[0].getContext('2d'), parData, 'pie', 'Query by parameters');
-        }
-    });
+    parChart.data = createChartData('params', data);
+    parChart.update();
 }
 
 function statistics_sidebar_open() {

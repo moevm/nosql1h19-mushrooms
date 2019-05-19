@@ -232,21 +232,22 @@ router.get('/stats/params', function (req, res, next) {
         })
     }
     else{
+        let all;
+        mushroom.aggregate([{$count: "count"}], function (e,r){all = r[0].count});
         mushroom.aggregate([
             {
                 $match: req.query,
             },
             {
-                $group:
-                {
-                    _id: "$_id",
-                    count: {$sum: 1}
-                }
+                $count: "count"
             }
         ], function (err, result) {
             if( err )
                 console.log(err);
             else{
+                result[0]._id = 'Same';
+                result.push({_id: 'Different', count: all-result[0].count});
+                res.send(result);
                 console.log(result);
             }
         })
