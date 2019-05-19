@@ -163,12 +163,40 @@ router.post('/import', function (req,res,next) {
 //Statistics
 router.get('/stats/region', function (req, res, next) {
     mushroom.aggregate([
-
-    ])
+        {
+            $unwind: "$region"
+        },
+        {
+            $group: {
+                _id: "$region",
+                count: {$sum: 1}
+            }
+        }
+    ], function (err, result) {
+        if( err )
+            console.log(err);
+        else{
+            console.log('region');
+            res.send(result);
+        }
+    })
 });
 
 router.get('/stats/edible', function (req, res, next) {
-
+    mushroom.aggregate([
+        {
+            $group: {
+                _id: "$edible",
+                count: {$sum: 1}
+            }
+        }
+    ], function (err, result) {
+        if( err )
+            console.log(err);
+        else{
+            res.send(result);
+        }
+    })
 });
 
 module.exports = router;

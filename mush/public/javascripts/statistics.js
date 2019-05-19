@@ -1,21 +1,59 @@
-$(()=>{
-    var ctx = document.getElementById('edibleCanvas').getContext('2d');
-    var chart = new Chart(ctx, {
-        // The type of chart we want to create
-        type: 'line',
+let edData = {
+    data: [],
+    labels: [],
+    colours: []
+};
 
-        // The data for our dataset
+let regData = {
+    data: [],
+    labels: [],
+    colours: []
+};
+
+$(()=>{
+    let regionC = $('#regionCanvas');
+    let edibleC = $('#edibleCanvas');
+
+    $.get('/db/stats/edible', function (res) {
+        console.log('gained', res);
+        fillData(res, edData);
+    });
+
+    $.get('/db/stats/region', function (res) {
+        fillData(res, regData);
+    });
+
+    let regChart = createChart(regionC[0].getContext('2d'), regData, 'doughnut', 'Region stats');
+    let edChart = createChart(edibleC[0].getContext('2d'), edData, 'pie', 'Edibility');
+});
+
+function createChart(context, dataObj, type, label) {
+    let chart = new Chart(context, {
+        type: type,
         data: {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            labels: dataObj.labels,
             datasets: [{
-                label: 'My First dataset',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: [0, 10, 5, 2, 20, 30, 45]
+                label: label,
+                backgroundColor: dataObj.colours,
+                data: dataObj.data
             }]
         },
-
-        // Configuration options go here
-        options: {}
     });
-});
+}
+
+function fillData(src, dst) {
+    src.forEach(function (it) {
+        dst.data.push(it.count);
+        dst.labels.push(it._id);
+        dst.colours.push(getRandomColor());
+    })
+}
+
+function getRandomColor() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
