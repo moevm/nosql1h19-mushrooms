@@ -10,3 +10,17 @@
 #rightDown {
     border: 2px solid gray;
 }
+
+.row{
+    text-align: center;
+}
+
+#title{
+    text-align: center;
+    width: 100%;
+}
+
+#numbers{
+    text-align: center;
+    width: 100%;
+}

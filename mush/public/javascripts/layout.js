@@ -22,6 +22,7 @@ function w3_close_left() {
     document.getElementById("openNav").style.visibility = "visible";
 }
 
+//Fill sidebar
 $.getJSON("/params", {},(data)=>{
     d = $.parseJSON(data);
     for(let k in d) {

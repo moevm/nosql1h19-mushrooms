@@ -1,18 +1,45 @@
+//Data
 let edData = {
     data: [],
     labels: [],
     colours: []
 };
-
 let regData = {
     data: [],
     labels: [],
     colours: []
 };
+let parData = {
+    data: [],
+    labels: [],
+    colours: []
+};
+
+//Charts
+let regChart;
+let edChart;
+let parChart;
+
+//Canvases
+let regionC;
+let edibleC;
+let paramC;
 
 $(()=>{
-    let regionC = $('#regionCanvas');
-    let edibleC = $('#edibleCanvas');
+    //INIT
+    //fill sidebar
+    $.getJSON("/params", {},(data)=>{
+        let d = $.parseJSON(data);
+        for(let k in d) {
+            $("#sidebarContent").append(twoComboLabel(k, d[k], "params params_correct"));
+        }
+        $(".params").change(updateChart);
+    });
+
+    //Canvas
+    regionC = $('#regionCanvas');
+    edibleC = $('#edibleCanvas');
+    paramC = $('#paramCanvas');
 
     $.get('/db/stats/edible', function (res) {
         console.log('gained', res);
@@ -23,8 +50,9 @@ $(()=>{
         fillData(res, regData);
     });
 
-    let regChart = createChart(regionC[0].getContext('2d'), regData, 'doughnut', 'Region stats');
-    let edChart = createChart(edibleC[0].getContext('2d'), edData, 'pie', 'Edibility');
+    regChart = createChart(regionC[0].getContext('2d'), regData, 'doughnut', 'Region stats');
+    edChart = createChart(edibleC[0].getContext('2d'), edData, 'pie', 'Edibility');
+    parChart = createChart(paramC[0].getContext('2d'), parData, 'pie', 'Query by parameters');
 });
 
 function createChart(context, dataObj, type, label) {
@@ -56,6 +84,29 @@ function getRandomColor() {
         color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
+}
+
+function updateChart() {
+    console.log('updating params');
+    let data = {};
+    $(".params").each(function () {
+        let val = $(this).val();
+        if( val !== '0' )
+            data[$(this).attr('name')] = val;
+    });
+    console.log(data);
+    $.ajax({
+        type: 'GET',
+        url: '/db/stats/params',
+        data: data,
+        success: function (res) {
+            console.log(res);
+            fillData(res, parData);
+            //paramC[0].getContext('2d').clearRect(0,0, paramC[0].width, paramC[0].height);
+            //parChart.clear();
+            parChart = createChart(paramC[0].getContext('2d'), parData, 'pie', 'Query by parameters');
+        }
+    });
 }
 
 function statistics_sidebar_open() {

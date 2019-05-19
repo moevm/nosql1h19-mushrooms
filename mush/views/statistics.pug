@@ -5,12 +5,12 @@ block general
         script(src='/javascripts/statistics.js')
         #statisticsSidebar.w3-sidebar.w3-bar-block.w3-card.w3-animate-left(style="display: none;")
             button.w3-bar-item.w3-button.w3-xlarge(onclick='statistics_sidebar_close()') Close ×
+            #sidebarContent
 
         .container-fluid
             .row
-                button#openStatisticsSidebar.w3-button.w3-xlarge(onclick='statistics_sidebar_open()') ☰
-            .row
                 #title
+                    button#openStatisticsSidebar.w3-button.w3-xlarge.w3-left(onclick='statistics_sidebar_open()') ☰
                     h1 asdasdasd
             .row
                 #numbers

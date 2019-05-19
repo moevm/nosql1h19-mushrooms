@@ -199,4 +199,48 @@ router.get('/stats/edible', function (req, res, next) {
     })
 });
 
+router.get('/stats/params', function (req, res, next) {
+    console.log('params');
+    console.log(req.query);
+    if( Object.keys(req.query).length === 1)
+    {
+        mushroom.aggregate([
+            {
+                $group:
+                    {
+                        _id: "$" + Object.keys(req.query)[0],
+                        count: {$sum: 1}
+                    }
+            }
+        ], function (err, result) {
+            if( err )
+                console.log(err);
+            else{
+                console.log(result);
+                res.send(result);
+            }
+        })
+    }
+    else{
+        mushroom.aggregate([
+            {
+                $match: req.query,
+            },
+            {
+                $group:
+                {
+                    _id: "$_id",
+                    count: {$sum: 1}
+                }
+            }
+        ], function (err, result) {
+            if( err )
+                console.log(err);
+            else{
+                console.log(result);
+            }
+        })
+    }
+});
+
 module.exports = router;
