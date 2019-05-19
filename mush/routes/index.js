@@ -70,4 +70,8 @@ router.post('/login', passport.authenticate('local', {
     failureFlash: true
 }));
 
+router.get('/statistics', function (req, res) {
+   res.render('statistics');
+});
+
 module.exports = router;

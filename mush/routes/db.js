@@ -160,4 +160,15 @@ router.post('/import', function (req,res,next) {
     })
 });
 
+//Statistics
+router.get('/stats/region', function (req, res, next) {
+    mushroom.aggregate([
+
+    ])
+});
+
+router.get('/stats/edible', function (req, res, next) {
+
+});
+
 module.exports = router;
