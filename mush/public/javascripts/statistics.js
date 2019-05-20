@@ -14,9 +14,27 @@ $(()=>{
     edibleC = $('#edibleCanvas');
     paramC = $('#paramCanvas');
 
-    regChart = new Chart(regionC[0].getContext('2d'), {type: 'doughnut', data: createChartData('region')});
-    edChart = new Chart(edibleC[0].getContext('2d'), {type: 'pie', data: createChartData('edible')});
-    parChart = new Chart(paramC[0].getContext('2d'), {type: 'pie', data: createChartData('region')});
+    regChart = new Chart(regionC[0].getContext('2d'), {type: 'doughnut', data: createChartData('region'),options: {
+            legend: {
+                labels: {
+                    fontColor: 'white'
+                }
+            }
+        }});
+    edChart = new Chart(edibleC[0].getContext('2d'), {type: 'pie', data: createChartData('edible'), options: {
+            legend: {
+                labels: {
+                    fontColor: 'white'
+                }
+            }
+        }});
+    parChart = new Chart(paramC[0].getContext('2d'), {type: 'pie', data: createChartData('region'), options: {
+            legend: {
+                labels: {
+                    fontColor: 'white'
+                }
+            }
+        }});
 
     //INIT
     //fill sidebar
