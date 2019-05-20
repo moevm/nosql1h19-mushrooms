@@ -9,6 +9,27 @@ function admin_sidebar_close() {
     document.getElementById("openAdminSidebar").style.visibility = "visible";
 }
 
+var importData;
+
+function send() {
+    if( importData.length > 0 )
+        $.post('/db/import', importData[0], function () {
+            importData.shift();
+            console.log('sent');
+        });
+}
+
+function myLoop () {
+    setTimeout(function () {
+        if( importData.length > 0)
+        {
+            console.log(importData.length);
+            send();
+            myLoop();
+        }
+    }, 200)
+}
+
 function exportDB() {
     $.getJSON('/db/query/main', {}, function (res) {
         res.forEach(function (item) {
@@ -33,11 +54,10 @@ function importDB() {
     fileIn.change(function () {
         let reader = new FileReader();
         reader.onload = function (event) {
-            let data = JSON.parse(event.target.result);
-            data.forEach(function (item) {
-                $.post('/db/import', item, function () {
-                });
-            });
+            importData = JSON.parse(event.target.result);
+
+            myLoop();
+
             queryToDb(fillAdmin);
             alert("Go take a brake, it's gonna take like 10*n sec")
         };
