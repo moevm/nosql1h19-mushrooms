@@ -33,12 +33,12 @@ function updateRegion(code = "") {
     if( code === "" )
     {
         button.text("Select Region");
-        $("#resetRegion").css("visibility", "hidden");
+        $("#resetRegion").css("display", "none");
     }
     else
     {
         button.text(code);
-        $("#resetRegion").css("visibility", "visible");
+        $("#resetRegion").css("display", "block");
     }
     console.log("region updated")
     button.val(code);
@@ -48,7 +48,7 @@ function updateRegion(code = "") {
 }
 
 function twoComboLabel(key, val, classs){
-    let d = $('<div />');
+    let d = $('<div class="d-inline" />');
     s = $('<select />', {class: classs, name: key, id: key});
     $('<option />', {value: 0, text: key}).appendTo(s);
     for( let k of val )

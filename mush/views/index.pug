@@ -1,12 +1,13 @@
 extends layout
 
 block content
-    #upWrap
+    #upWrap.d-flex.justify-content-center.align-items-center
         link(rel='stylesheet', href='/stylesheets/index.css')
         #mainWrapper.wrap
-            img(src="/images/festisite_google-classic.png")
+            p.offer__citation Metues vitae, non metues mori
+            h1.offer__title Mushrooms
             form#queryf(action='/search' type='get')
-                input#query(type="text" name="name")
+                input#query.offer__search-input(type="text" name="name")
                 .wrap#bwr
-                    input.w3-button.w3-white.w3-border.detButton(type="submit" value="I'm definitely not gonna be poisoned" )
+                    input.button.offer__button.detButton(type="submit" value="I'm definitely not gonna be poisoned" )
     script(src='/javascripts/index.js')

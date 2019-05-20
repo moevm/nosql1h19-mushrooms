@@ -1,14 +1,10 @@
-html {
-    /*overflow-y: hidden;*/
-}
 
 .params_correct {
     width: 216px;
-    margin: 2px 5px 2px 5px;
+    margin: 2px 5px 2px 0px;
 }
 
 #openMap{
-    height: 52px;
 }
 
 .correct-modal {

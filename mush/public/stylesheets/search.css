@@ -7,6 +7,14 @@
     display: inline;
 }
 
+.search__search-input {
+    background: rgba(0, 0, 1, 0.3);
+    border: 1px solid white;
+    width: 527px;
+    padding: 15px 10px;
+
+}
+
 #query{
     width: 80%;
     margin-right: 10px;
@@ -30,10 +38,14 @@
     width: auto;
     height: auto;
     margin: 10px 50px 10px 50px;
-    background-color: lightgrey;
+    background: rgba(2.4, 0.21, 0.19, 0.75);
+    border: 1px solid white;
+    position: relative;
 }
 
+
 .mushroom__image-wrapper {
+    border-right: 1px solid white;
 
 }
 
@@ -49,9 +61,9 @@
 }
 
 .mushroom__name {
-    background-color: aliceblue;
     font-size: 14px;
     text-align: center;
+    padding: 5px 0px;
 }
 
 .mushroom__params-wrappers {
@@ -59,24 +71,29 @@
     width: 100%;
 }
 .mushroom__params-wrapper-one {
-    height: 25px;
+    border-bottom: 1px solid white;
+    background: #262630;
 }
 
 .mushroom__description {
+    padding-top: 10px;
+    padding-bottom: 10px;
     padding-left: 20px;
     width: 70%;
-    background-color: coral;
+    border-right: 1px solid white;
 }
 
 .mushroom__region {
+    padding-top: 10px;
+    padding-bottom: 10px;
     width: 30%;
-    background-color: darkseagreen;
     padding-left: 20px;
 }
 
 .mushroom__params-wrapper-two {
     padding-left: 20px;
     width: 100%;
+    padding-top: 10px;
 
 }
 
@@ -85,6 +102,14 @@
     flex-grow: 1;
 }
 
+h4 {
+    margin-bottom: 5px;
+}
+
 .mushroom__params-bruises {
     margin-top: 10px;
+}
+
+.par {
+    margin-bottom: 6px;
 }

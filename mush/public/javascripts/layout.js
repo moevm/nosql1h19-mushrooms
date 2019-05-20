@@ -12,7 +12,7 @@ $window.scroll(function() {
 //Sidebar fuctions
 function w3_open_left() {
     document.getElementById("main").style.marginLeft = "15%";
-    document.getElementById("leftSidebar").style.width = "18%";
+    document.getElementById("leftSidebar").style.width = "17%";
     document.getElementById("leftSidebar").style.display = "block";
     document.getElementById("openNav").style.visibility = 'hidden';
 }
@@ -72,7 +72,7 @@ $(function () {
     document.getElementById("black").onclick = function () {
         black(true);
     };
-    $("#red").css('visibility', 'hidden');
+    $("#red").css('display', 'one');
 
 });
 
