@@ -16,6 +16,8 @@ $(()=>{
 
     regChart = new Chart(regionC[0].getContext('2d'), {type: 'doughnut', data: createChartData('region'),options: {
             legend: {
+                position: 'left',
+                //display: false,
                 labels: {
                     fontColor: 'white'
                 }
@@ -31,7 +33,7 @@ $(()=>{
     parChart = new Chart(paramC[0].getContext('2d'), {type: 'pie', data: createChartData('region'), options: {
             legend: {
                 labels: {
-                    fontColor: 'white'
+                    fontColor: 'white',
                 }
             }
         }});

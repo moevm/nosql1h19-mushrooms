@@ -259,12 +259,13 @@ router.get('/stats/params', function (req, res, next) {
             if( err )
                 console.log(err);
             else{
+                console.log(result);
                 if( typeof result === "undefined" )
                     result = {};
                 result[0]._id = 'Same';
                 result.push({_id: 'Different', count: all-result[0].count});
                 res.send(result);
-                console.log(result);
+
             }
         })
     }
