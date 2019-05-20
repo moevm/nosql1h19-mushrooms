@@ -113,3 +113,7 @@ h4 {
 .par {
     margin-bottom: 6px;
 }
+
+#query {
+    width: 320px;
+}

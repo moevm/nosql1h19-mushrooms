@@ -20,11 +20,15 @@
 }
 
 .admin_button {
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
-.search_input{
+.admin__search_input{
     margin-top: 10px;
+    background: rgba(0, 0, 1, 0.3);
+    border: 1px solid white;
+    padding: 15px 10px;
+
 }
 
 #openAdminSidebar {
@@ -35,3 +39,4 @@
     width: 300px;
     margin-top: 10px;
 }
+

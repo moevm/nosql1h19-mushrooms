@@ -11,7 +11,7 @@ block general
 
         #admin_search.w3-col.s6
             #adminSidebar.w3-sidebar.w3-bar-block.w3-card.w3-animate-top(style="display: none;")
-                button.w3-bar-item.w3-button.w3-xlarge(onclick='admin_sidebar_close()') Close ×
+                button.sidebar__close(onclick='admin_sidebar_close()') Close ×
                 #adminSidebarWrapper
                 #iewrap
                     button.w3-button(onclick="exportDB()") Export db
@@ -19,9 +19,9 @@ block general
 
             h3 Admin Search
             .w3-row
-                button#openAdminSidebar.w3-button.w3-xlarge.w3-bar-item(onclick='admin_sidebar_open()') ☰
-                input.w3-large#query.search_input(type="text" name="name")
-                button.w3-button.w3-white.w3-border.w3-right.admin_button#adminMush Создать админский гриб
+                button#openAdminSidebar.button.button-burger(onclick='admin_sidebar_open()') ☰
+                input#query.admin__search_input(type="text" name="name")
+                button.button.w3-right.admin_button#adminMush Создать админский гриб
 
             #admin_content
                 ul.w3-ul.w3-hoverable#adminList

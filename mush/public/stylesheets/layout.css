@@ -16,7 +16,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Roboto Black'
+    font-family: 'Roboto Black';
     line-height: 1.5em;
     color: white;
     font-weight: bold;
@@ -136,7 +136,6 @@ button:focus{
 .button-burger {
     border: none;
     font-size: 30px;
-    padding-left: 5px;
     cursor: pointer;
 }
 
@@ -159,6 +158,11 @@ button:focus{
     background: #262630;
     padding-left: 6px;
 }
+#adminSidebar {
+    background: #262630;
+    padding-left: 6px;
+}
+
 
 .sidebar__close {
     border: none;
@@ -179,14 +183,41 @@ button:focus{
     align-content: flex-start;
 }
 
+#black {
+    margin: 10px 0px 20px 0px;
+}
+
+#red {
+    margin-left: 10px;
+}
 
 
 #usertrash_modal{
     padding-top: 15px;
 }
 
+.modal__params {
+    background: #262630;
+    margin: 10px 0px;
+}
 #topBarWrapper {
     padding-bottom: 4px;
+}
+
+
+#user_trash {
+    padding: 0px 5px;
+    background: rgba(2.4, 0.21, 0.19, 0.75) ;
+}
+
+
+#admin_search {
+    padding: 0px 5px;
+    background: rgba(2.4, 0.21, 0.19, 0.75) ;
+}
+
+#admin_content ul li:hover {
+    background: #262630;
 }
     /*
 
@@ -218,6 +249,3 @@ button:focus{
     height: 600px;
 }
 
-.row {
-    text-align: left;
-}

@@ -6,14 +6,14 @@
                 button.button.sidebar__close.col-md-1(onclick='usermodal_close()' style="font-size: 25px") &times;
         .container
             img#userimg(src="#")
-            input.w3-input.w3-border#imgInput(type="file" name="img" accept="image/jpeg,image/png" value="" placeholder="Image" style="margin-top: 10px;")
+            input.w3-input.w3-border.modal__params#imgInput(type="file" name="img" accept="image/jpeg,image/png" value="" placeholder="Image")
             form#modalForm(method="post")
-                input.w3-input.w3-border.modalParams(type="text" name="name" placeholder="Name of mushroom" style="margin-top: 10px;")
-                input.w3-input.w3-border.modalParams(type="text" name="description" placeholder="Description" style="margin: 10px 0px;")
-                input.w3-input.w3-border.modalParams(type="text" name="region" placeholder="Region" style="margin: 10px 0px;")
-                //.modalParam - is modal params, hehm
+                input.w3-input.w3-border.modalParams.modal__params(type="text" name="name" placeholder="Name of mushroom")
+                input.w3-input.w3-border.modalParams.modal__params(type="text" name="description" placeholder="Description")
+                input.w3-input.w3-border.modalParams.modal__params(type="text" name="region" placeholder="Region" )
+
                 #userWrapper.d-flex
 
-            button.button#black(onclick="black(false)" style="margin: 20px 0px;") Enter
-            button.button#red(onclick="red()" style="margin: 20px 0px;") Dismiss
+            button.button#black(onclick="black(false)") Enter
+            button.button#red(onclick="red()") Dismiss
     script(src="/javascripts/modal.js")
