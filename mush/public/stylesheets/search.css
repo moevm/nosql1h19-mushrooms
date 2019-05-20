@@ -16,7 +16,6 @@
 }
 
 #query{
-    width: 80%;
     margin-right: 10px;
 }
 
@@ -114,6 +113,6 @@ h4 {
     margin-bottom: 6px;
 }
 
-#query {
-    width: 320px;
+.mdya {
+    width: 310px;
 }
