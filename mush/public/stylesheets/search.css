@@ -10,7 +10,7 @@
 .search__search-input {
     background: rgba(0, 0, 1, 0.3);
     border: 1px solid white;
-    width: 527px;
+    width: 100%;
     padding: 15px 10px;
 
 }
