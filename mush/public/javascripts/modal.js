@@ -114,14 +114,13 @@ function black(search) {
             console.log(search);
             usermodal_close();
             if( !search ){
-                console.log('there')
+                console.log('there');
                 queryToDb(fillAdmin);
                 $.getJSON('/db/query/suggestions', {}, function (data) {
                     console.log('querying to suggestions');
                     fillSuggestions(data);
                 } );
             }
-
         },
         error: function (err) {
             if( err )

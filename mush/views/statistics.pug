@@ -1,6 +1,6 @@
 extends main
 block general
-    #upWrap
+    #upWrapWrap
         script(src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0")
         script(src='/javascripts/statistics.js')
         #statisticsSidebar.w3-sidebar.w3-bar-block.w3-card.w3-animate-left(style="display: none;")
@@ -22,9 +22,9 @@ block general
                         canvas#paramCanvas
                 .col-md-6
                     #rightUp
-                        h4 circle two
+                        h4 Regional distribution
                         canvas#regionCanvas
                     #rightDown
-                        h4 circle three
+                        h4 Edibility
                         canvas#edibleCanvas
 

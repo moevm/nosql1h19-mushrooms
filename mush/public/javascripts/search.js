@@ -147,7 +147,7 @@ function miniature(item){
 }
 
 function fillContent(data) {
-    $("#contWrap").empty();
+    $("#search__mushrooms-wrap").empty();
     data.forEach(miniature);
 }
 
