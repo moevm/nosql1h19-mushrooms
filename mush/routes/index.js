@@ -35,42 +35,46 @@ var params = {
     population : [{ abundant:"a"}, {clustered:"c"}, {numerous:"n"}, { scattered:"s"}, {several:"v"}, {solitary:"y"}],
     habitat : [{ grasses:"g"}, {leaves:"l"}, {meadows:"m"}, {paths:"p"}, { urban:"u"}, {waste:"w"}, {woods:"d"}],
     edible: [{yes: "y"}, {no: "n"}]
-};
+}; //параметры для заполнения сайд-бара
 
 //Routes
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res, next) { //основная страница
   res.render('index');
 });
 
+router.get('/out', function (req, res, next) {
+    res.sendFile('D:\\Un\\6\\БД\\nosql1h19-mushrooms\\mush\\out.json'); //файл экспорта
+})
+
 //Get sidebar filler
-router.get('/params', function (req, res, next) {
+router.get('/params', function (req, res, next) { //запрос на получение параметров в виде жсона
    res.json(JSON.stringify(params));
 });
 
 //Get search page
-router.get('/search', function (req, res, next) {
+router.get('/search', function (req, res, next) { //поисковая страница
     console.log("Someone is trying to search our secrets");
-    if( req.query.name === "" )
+    if( req.query.name === "" ) //если имя пустое - удаляем
         delete req.query.name;
     res.render('search', {query: JSON.stringify(req.query)});
 });
 
 //Admins
-router.get('/adminauth', function(req, res) {
+router.get('/adminauth', function(req, res) { //админская аутентификация
     res.render('adminauth', { title: 'Admin Panel'});
 });
 
-router.get('/adminpanel', passport.authenticationMiddleware(), function(req, res) {
+router.get('/adminpanel', passport.authenticationMiddleware(), function(req, res) { //админская страница, аутентификация через passport
     res.render('adminpanel', { title: 'Admin Panel'});
 });
 
-router.post('/login', passport.authenticate('local', {
+router.post('/login', passport.authenticate('local', { //к этой штуке происходит запрос после аутентификации /adminpanel
     successRedirect: '/adminpanel',
     failureRedirect: '/',
     failureFlash: true
 }));
 
-router.get('/statistics', function (req, res) {
+router.get('/statistics', function (req, res) { //получение статистики
    res.render('statistics');
 });
 

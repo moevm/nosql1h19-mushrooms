@@ -6,6 +6,7 @@ block general
         #statisticsSidebar.w3-sidebar.w3-bar-block.w3-card.w3-animate-left(style="display: none;")
             button.button.sidebar__close(onclick='statistics_sidebar_close()') Close ×
             #sidebarContent
+                button(type="file" onclick="exportDB()")
 
         .container-fluid
             .row

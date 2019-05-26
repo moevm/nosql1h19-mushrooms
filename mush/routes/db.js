@@ -1,5 +1,6 @@
 express = require('express');
 mongoose = require('mongoose');
+fs = require('fs');
 
 router = express.Router();
 Schema = mongoose.Schema;
@@ -55,7 +56,17 @@ router.get('/query/main', function (req, res, next) {
         req.query.name = {$regex: req.query.name};
     }
     mushroom.find(req.query, function (err, mush) {
-        res.send(mush);
+        if( Object.entries(req.query).length === 0 && req.query.constructor === Object ) {
+            console.log('wirting');
+            let writer = fs.createWriteStream('out.json');
+            writer.write(JSON.stringify(mush));
+            console.log(mush);
+            res.send(mush);
+        }
+        else
+        {
+            res.send(mush);
+        }
     });
 });
 

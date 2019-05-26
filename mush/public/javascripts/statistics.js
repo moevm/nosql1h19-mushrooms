@@ -17,7 +17,7 @@ $(()=>{
     regChart = new Chart(regionC[0].getContext('2d'), {type: 'doughnut', data: createChartData('region'),options: {
             legend: {
                 position: 'left',
-                //display: false,
+                display: false,
                 labels: {
                     fontColor: 'white'
                 }
@@ -48,6 +48,22 @@ $(()=>{
         $(".params").change(updateChart);
     });
 });
+
+function exportDB() {
+    $.getJSON('/db/query/main', {}, function (res) {
+        res.forEach(function (item) {
+            delete item._id;
+        });
+        console.log(res);
+        let dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(res));
+        let downloadAnchorNode = document.createElement('a');
+        downloadAnchorNode.setAttribute("href", dataStr);
+        downloadAnchorNode.setAttribute("download", "backup.json");
+        document.body.appendChild(downloadAnchorNode); // required for firefox
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
+    });
+}
 
 function createChartData(url, reqData = {}) {
     let chartData = {
